@@ -98,6 +98,10 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	jumpBufferTimer -= delta
 	coyoteTimer -= delta
+	
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
+	
 	match CurrentState:
 		States.Idle:
 			return

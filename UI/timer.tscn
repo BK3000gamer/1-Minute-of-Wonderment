@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://s13ukyw6wp8c"]
+
+[ext_resource type="Script" uid="uid://fd42dhh4l250" path="res://Scripts/timer.gd" id="1_342dd"]
+
+[sub_resource type="SystemFont" id="SystemFont_342dd"]
+font_names = PackedStringArray("Sora")
+font_weight = 600
+
+[sub_resource type="Theme" id="Theme_jpgby"]
+default_font = SubResource("SystemFont_342dd")
+default_font_size = 0
+
+[sub_resource type="SystemFont" id="SystemFont_jpgby"]
+font_names = PackedStringArray("Sora")
+font_weight = 800
+
+[sub_resource type="Theme" id="Theme_seskg"]
+default_font = SubResource("SystemFont_jpgby")
+default_font_size = 40
+
+[node name="Timer" type="CanvasLayer"]
+script = ExtResource("1_342dd")
+
+[node name="Clock" type="Label" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = SubResource("Theme_jpgby")
+
+[node name="Score" type="Label" parent="."]
+visible = false
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -22.5
+offset_right = 91.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_seskg")
+horizontal_alignment = 1
+vertical_alignment = 1
