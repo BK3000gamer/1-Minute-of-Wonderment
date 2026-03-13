@@ -4,7 +4,7 @@ extends Area2D
 var active := true
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Emu:
+	if body is Emu and active:
 		timer.timer += 1.0
 		timer.collected += 1
 		active = false

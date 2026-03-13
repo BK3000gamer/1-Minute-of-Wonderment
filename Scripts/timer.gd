@@ -31,3 +31,4 @@ func _end() -> void:
 	clock.visible = false
 	score.visible = true
 	score.text = "Clocks Collected: %02d\nTime Remaining: %01d:%02d" % [collected, rm, rs]
+	get_tree().paused = true

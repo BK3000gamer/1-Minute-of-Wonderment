@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dh5xoefewfoel"]
+[gd_scene load_steps=26 format=3 uid="uid://dh5xoefewfoel"]
 
 [ext_resource type="PackedScene" uid="uid://s13ukyw6wp8c" path="res://UI/timer.tscn" id="1_0c07c"]
+[ext_resource type="Script" uid="uid://cvdjsbi0b1ag5" path="res://Scripts/reset.gd" id="1_qpfo2"]
 [ext_resource type="PackedScene" uid="uid://cdkvw5gq7s3eu" path="res://Scenes/start.tscn" id="2_2cgwh"]
 [ext_resource type="PackedScene" uid="uid://dl81u60vberkb" path="res://Scenes/emu.tscn" id="2_8od7v"]
 [ext_resource type="PackedScene" uid="uid://ceoe6ul0bddh2" path="res://Scenes/end.tscn" id="3_2cgwh"]
@@ -54,6 +55,11 @@ size = Vector2(32, 48)
 size = Vector2(160, 128)
 
 [node name="Node2D" type="Node2D"]
+process_mode = 1
+
+[node name="Reset" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("1_qpfo2")
 
 [node name="Timer" parent="." instance=ExtResource("1_0c07c")]
 
@@ -284,7 +290,7 @@ position = Vector2(-1.5258789e-05, 0)
 scale = Vector2(0.24999976, 1)
 
 [node name="Platform10" parent="Room2" instance=ExtResource("3_qc4db")]
-position = Vector2(144, 116)
+position = Vector2(128, 116)
 
 [node name="CollisionShape2D" parent="Room2/Platform10" index="0"]
 position = Vector2(0, 8)
@@ -293,6 +299,10 @@ shape = SubResource("RectangleShape2D_7nf3m")
 [node name="Sprite2D" parent="Room2/Platform10" index="1"]
 position = Vector2(-1.5258789e-05, 7.9999905)
 scale = Vector2(0.24999976, 0.37499985)
+
+[node name="Clock2" parent="Room2" node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
+position = Vector2(-96, 52)
+timer = NodePath("../../Timer")
 
 [node name="Room3" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_ys1qc")]
 position = Vector2(1600, 212)
