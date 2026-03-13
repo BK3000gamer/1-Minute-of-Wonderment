@@ -1,14 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh5xoefewfoel"]
+[gd_scene load_steps=22 format=3 uid="uid://dh5xoefewfoel"]
 
 [ext_resource type="Script" uid="uid://c0wafvo7nrpec" path="res://Scripts/timer.gd" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://dl81u60vberkb" path="res://Scenes/emu.tscn" id="2_8od7v"]
 [ext_resource type="PackedScene" uid="uid://cr4s35bk2t2ea" path="res://Scenes/platform.tscn" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://bmaseovuaexvq" path="res://Scenes/room.tscn" id="4_ys1qc"]
+[ext_resource type="PackedScene" uid="uid://br58bq2w5rfyp" path="res://Scenes/spike.tscn" id="5_i3aeo"]
+[ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="6_5wyu1"]
+[ext_resource type="PackedScene" uid="uid://bnupcupo4t06u" path="res://Scenes/breaking_platform.tscn" id="7_5wyu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys1qc"]
+size = Vector2(128, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c07c"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3aeo"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wyu1"]
+size = Vector2(112, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cgwh"]
+size = Vector2(192, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaow0"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpfo2"]
+size = Vector2(160, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb21e"]
 size = Vector2(64, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc4db"]
-size = Vector2(256, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ocox"]
+size = Vector2(128, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aees8"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mie3u"]
+size = Vector2(32, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qy5o"]
+size = Vector2(32, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nf3m"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuf18"]
+size = Vector2(160, 128)
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,7 +56,7 @@ size = Vector2(256, 32)
 script = ExtResource("1_lc1oi")
 
 [node name="Emu" parent="." instance=ExtResource("2_8od7v")]
-position = Vector2(48, 88)
+position = Vector2(32, 248)
 baseSpeed = 149.9999999999952
 maxSpeed = 299.9999999999904
 acceleration = 1.1999999999999615
@@ -27,23 +67,251 @@ jumpTimeToDecent = 0.249999999999992
 jumpBufferTime = 0.0499999999999984
 coyoteTime = 0.0499999999999984
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="Room" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_ys1qc")]
+position = Vector2(320, 180)
+camera = NodePath("../Camera2D")
+
+[node name="Checkpoint" parent="Room" index="1"]
+position = Vector2(-288, 68)
+
 [node name="Platform" parent="." instance=ExtResource("3_qc4db")]
-position = Vector2(48, 120)
+position = Vector2(32, 280)
 
 [node name="CollisionShape2D" parent="Platform" index="0"]
+position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_ys1qc")
 
 [node name="Sprite2D" parent="Platform" index="1"]
-scale = Vector2(0.5, 0.25)
+position = Vector2(32, 32)
+scale = Vector2(1, 0.75)
+
+[node name="Spike" parent="." instance=ExtResource("5_i3aeo")]
+position = Vector2(320, 344)
+
+[node name="Sprite2D" parent="Spike" index="0"]
+scale = Vector2(5, 0.25)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Spike" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_0c07c")
 
 [node name="Platform2" parent="." instance=ExtResource("3_qc4db")]
-position = Vector2(256, 168)
+position = Vector2(240, 296)
 
 [node name="CollisionShape2D" parent="Platform2" index="0"]
-shape = SubResource("RectangleShape2D_qc4db")
+shape = SubResource("RectangleShape2D_i3aeo")
 
 [node name="Sprite2D" parent="Platform2" index="1"]
-scale = Vector2(2, 0.25)
+position = Vector2(2.3841858e-06, 0)
+scale = Vector2(0.49999985, 1)
 
+[node name="Platform3" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(224, 216)
+
+[node name="CollisionShape2D" parent="Platform3" index="0"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_5wyu1")
+
+[node name="Sprite2D" parent="Platform3" index="1"]
+position = Vector2(8, -1.9073486e-06)
+scale = Vector2(0.875, 0.25000003)
+
+[node name="Platform4" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(448, 328)
+
+[node name="CollisionShape2D" parent="Platform4" index="0"]
+shape = SubResource("RectangleShape2D_2cgwh")
+
+[node name="Sprite2D" parent="Platform4" index="1"]
+position = Vector2(1.335144e-05, 4.7683716e-06)
+scale = Vector2(1.4999998, 0.49999997)
+
+[node name="Spike2" parent="." instance=ExtResource("5_i3aeo")]
+position = Vector2(432, 280)
+
+[node name="Sprite2D" parent="Spike2" index="0"]
+position = Vector2(-3.8146973e-06, 7.6293945e-06)
+scale = Vector2(0.25000006, 0.25000012)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Spike2" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_iaow0")
+
+[node name="Platform5" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(608, 296)
+
+[node name="CollisionShape2D" parent="Platform5" index="0"]
+position = Vector2(16, 64)
+shape = SubResource("RectangleShape2D_qpfo2")
+
+[node name="Sprite2D" parent="Platform5" index="1"]
+position = Vector2(16.000017, 64)
+scale = Vector2(1.2500004, 2)
+
+[node name="Breaking Platform" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(400, 136)
+
+[node name="Platform6" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(560, 88)
+
+[node name="CollisionShape2D" parent="Platform6" index="0"]
+shape = SubResource("RectangleShape2D_yb21e")
+
+[node name="Sprite2D" parent="Platform6" index="1"]
+position = Vector2(1.21593475e-05, -1.9073486e-06)
+scale = Vector2(0.49999985, 0.25000003)
+
+[node name="Room2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_ys1qc")]
+position = Vector2(960, 308)
+camera = NodePath("../Camera2D")
+
+[node name="Checkpoint" parent="Room2" index="1"]
+position = Vector2(-288, -92)
+
+[node name="Spike3" parent="." instance=ExtResource("5_i3aeo")]
+position = Vector2(960, 472)
+
+[node name="Sprite2D" parent="Spike3" index="0"]
+scale = Vector2(5, 0.25)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Spike3" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_0c07c")
+
+[node name="Breaking Platform2" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(720, 232)
+
+[node name="Breaking Platform3" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(752, 232)
+
+[node name="Breaking Platform4" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(784, 232)
+
+[node name="Breaking Platform5" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(816, 232)
+
+[node name="Breaking Platform6" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(848, 232)
+
+[node name="Breaking Platform7" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(880, 232)
+
+[node name="Breaking Platform8" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(912, 232)
+
+[node name="Breaking Platform9" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(944, 232)
+
+[node name="Breaking Platform10" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(976, 232)
+
+[node name="Breaking Platform11" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(1008, 232)
+
+[node name="Breaking Platform12" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(1040, 232)
+
+[node name="Breaking Platform13" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(1072, 232)
+
+[node name="Breaking Platform14" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(1104, 232)
+
+[node name="Breaking Platform15" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(1136, 232)
+
+[node name="Platform11" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(1248, 408)
+
+[node name="CollisionShape2D" parent="Platform11" index="0"]
+position = Vector2(-32, 8)
+shape = SubResource("RectangleShape2D_2ocox")
+
+[node name="Sprite2D" parent="Platform11" index="1"]
+position = Vector2(-32, 8.000012)
+scale = Vector2(1, 0.625)
+
+[node name="Platform7" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(1200, 248)
+
+[node name="CollisionShape2D" parent="Platform7" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_aees8")
+
+[node name="Sprite2D" parent="Platform7" index="1"]
+position = Vector2(4.553795e-05, 7.9999943)
+scale = Vector2(0.7500001, 0.3750001)
+
+[node name="Platform8" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(864, 392)
+
+[node name="CollisionShape2D" parent="Platform8" index="0"]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_mie3u")
+
+[node name="Sprite2D" parent="Platform8" index="1"]
+position = Vector2(2.2888184e-05, 24)
+scale = Vector2(0.25000036, 0.625)
+
+[node name="Platform9" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(992, 392)
+
+[node name="CollisionShape2D" parent="Platform9" index="0"]
+shape = SubResource("RectangleShape2D_0qy5o")
+
+[node name="Sprite2D" parent="Platform9" index="1"]
+position = Vector2(-1.5258789e-05, 0)
+scale = Vector2(0.24999976, 1)
+
+[node name="Platform10" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(1104, 424)
+
+[node name="CollisionShape2D" parent="Platform10" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_7nf3m")
+
+[node name="Sprite2D" parent="Platform10" index="1"]
+position = Vector2(-1.5258789e-05, 7.9999905)
+scale = Vector2(0.24999976, 0.37499985)
+
+[node name="Room3" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_ys1qc")]
+position = Vector2(1600, 212)
+camera = NodePath("../Camera2D")
+
+[node name="Checkpoint" parent="Room3" index="1"]
+position = Vector2(-288, 100)
+
+[node name="Platform12" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(1328, 392)
+
+[node name="CollisionShape2D" parent="Platform12" index="0"]
+shape = SubResource("RectangleShape2D_kuf18")
+
+[node name="Sprite2D" parent="Platform12" index="1"]
+position = Vector2(3.0517578e-05, 0)
+scale = Vector2(1.2499995, 1)
+
+[editable path="Room"]
 [editable path="Platform"]
+[editable path="Spike"]
 [editable path="Platform2"]
+[editable path="Platform3"]
+[editable path="Platform4"]
+[editable path="Spike2"]
+[editable path="Platform5"]
+[editable path="Platform6"]
+[editable path="Room2"]
+[editable path="Spike3"]
+[editable path="Platform11"]
+[editable path="Platform7"]
+[editable path="Platform8"]
+[editable path="Platform9"]
+[editable path="Platform10"]
+[editable path="Room3"]
+[editable path="Platform12"]

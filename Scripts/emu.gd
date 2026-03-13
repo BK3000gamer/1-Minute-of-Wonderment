@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Emu
 
 @export_category("Stats")
 @export var baseSpeed: float
@@ -20,6 +21,8 @@ var fallGravity: float
 var jumpBufferTimer: float = 0.0
 var coyoteTimer: float = 0.0
 
+var checkpoint := Vector2.ZERO
+
 enum States {
 	Idle,
 	Run,
@@ -38,7 +41,6 @@ func _get_gravity() -> float:
 	return jumpGravity if velocity.y < 0.0 else fallGravity
 
 func _physics_process(delta: float) -> void:
-	print(velocity.x)
 	#Input Direction
 	InputDir = Input.get_action_strength("right") - Input.get_action_strength("left")
 	#Gravity
@@ -118,3 +120,7 @@ func _change_state(NewState: States) -> void:
 		States.Fall:
 			coyoteTimer = coyoteTime
 			Momentum = abs(velocity.x)
+
+func _respawn() -> void:
+	global_position = checkpoint
+	velocity = Vector2.ZERO

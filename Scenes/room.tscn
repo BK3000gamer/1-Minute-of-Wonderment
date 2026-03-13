@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmaseovuaexvq"]
+
+[ext_resource type="Script" uid="uid://cqucbe84l4pq7" path="res://Scripts/room.gd" id="1_mbine"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsht4"]
+size = Vector2(640, 360)
+
+[node name="Room" type="Area2D"]
+script = ExtResource("1_mbine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lsht4")
+
+[node name="Checkpoint" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
