@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var camera: Camera2D
+@onready var camera := $"/root/Node2D/Camera2D"
 @onready var checkpoint := $Checkpoint
 
 func _on_body_entered(body: Node2D) -> void:

@@ -23,6 +23,8 @@ var coyoteTimer: float = 0.0
 
 var checkpoint := Vector2.ZERO
 
+signal respawn
+
 enum States {
 	Idle,
 	Run,
@@ -32,11 +34,6 @@ enum States {
 
 var CurrentState = States.Idle
 
-func _ready() -> void:
-	jumpVelocity = (2.0 * jumpHeight) / jumpTimeToPeak * -1.0
-	jumpGravity = (-2.0 * jumpHeight) / pow(jumpTimeToPeak, 2.0) * -1.0
-	fallGravity = (-2.0 * jumpHeight) / pow(jumpTimeToDecent, 2.0) * -1.0
-
 func _get_gravity() -> float:
 	return jumpGravity if velocity.y < 0.0 else fallGravity
 
@@ -44,6 +41,9 @@ func _physics_process(delta: float) -> void:
 	#Input Direction
 	InputDir = Input.get_action_strength("right") - Input.get_action_strength("left")
 	#Gravity
+	jumpVelocity = (2.0 * jumpHeight) / jumpTimeToPeak * -1.0
+	jumpGravity = (-2.0 * jumpHeight) / pow(jumpTimeToPeak, 2.0) * -1.0
+	fallGravity = (-2.0 * jumpHeight) / pow(jumpTimeToDecent, 2.0) * -1.0
 	velocity.y += _get_gravity() * delta
 	match CurrentState:
 		States.Idle:
@@ -124,4 +124,4 @@ func _change_state(NewState: States) -> void:
 
 func _respawn() -> void:
 	global_position = checkpoint
-	velocity = Vector2.ZERO
+	respawn.emit()
