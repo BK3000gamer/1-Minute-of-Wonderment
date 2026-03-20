@@ -11,6 +11,10 @@ class_name Emu
 @export var jumpTimeToDecent: float
 @export var jumpBufferTime: float
 @export var coyoteTime: float
+@export var maxStamina: float = 100.0
+@export var staminaDepletionRate: float = 50.0 #per second
+@export var airAcceleration: float = 20.0
+@export var airDeceleration: float = 15.0
 
 var InputDir: float = 0.0
 var Speed: float
@@ -20,8 +24,8 @@ var jumpGravity: float
 var fallGravity: float
 var jumpBufferTimer: float = 0.0
 var coyoteTimer: float = 0.0
-
 var checkpoint := Vector2.ZERO
+var currentStamina: float = 100.0
 
 signal respawn
 
@@ -29,7 +33,8 @@ enum States {
 	Idle,
 	Run,
 	Jump,
-	Fall
+	Fall,
+	WallCling
 }
 
 var CurrentState = States.Idle
@@ -45,6 +50,12 @@ func _physics_process(delta: float) -> void:
 	jumpGravity = (-2.0 * jumpHeight) / pow(jumpTimeToPeak, 2.0) * -1.0
 	fallGravity = (-2.0 * jumpHeight) / pow(jumpTimeToDecent, 2.0) * -1.0
 	velocity.y += _get_gravity() * delta
+	#Layer 4 WallCling Collision
+	if is_on_wall() and !is_on_floor() and currentStamina >0:
+		if get_last_slide_collision().get_collider().collision_layer == 8:
+			if CurrentState != States.WallCling:
+				_change_state(States.WallCling)
+	
 	match CurrentState:
 		States.Idle:
 			velocity = Vector2.ZERO
@@ -66,8 +77,12 @@ func _physics_process(delta: float) -> void:
 			else:
 				_change_state(States.Fall)
 		States.Jump:
-			Speed *= acceleration
-			velocity.x = InputDir * min(Speed, maxSpeed)
+			#Speed based on input for air momentum (Look States.Fall)
+			if InputDir != 0:
+				Momentum = move_toward(Momentum, maxSpeed, airAcceleration)
+			else:
+				Momentum = move_toward(Momentum, 0, airDeceleration)
+			velocity.x = InputDir * Momentum
 			if velocity.y < 0.0:
 				_change_state(States.Fall)
 			if is_on_floor():
@@ -76,7 +91,10 @@ func _physics_process(delta: float) -> void:
 				else:
 					_change_state(States.Run)
 		States.Fall:
-			Momentum *= deceleration
+			if InputDir != 0:
+				Momentum = move_toward(Momentum, maxSpeed, airAcceleration)
+			else:
+				Momentum = move_toward(Momentum, 0, airDeceleration)
 			velocity.x = InputDir * Momentum
 			if Input.is_action_just_pressed("jump"):
 				if coyoteTimer > 0:
@@ -93,7 +111,28 @@ func _physics_process(delta: float) -> void:
 						_change_state(States.Idle)
 					else:
 						_change_state(States.Run)
+		States.WallCling:
+			currentStamina -= staminaDepletionRate * delta
+			#Exit Conditons
+			# 1. Out of Stamina
+			# 2. Jump Away from wall
+			# 3. No longer touching wall (let go of direction)
+			if currentStamina <= 0 or !is_on_wall():
+				_change_state(States.Fall)
+				
+			if Input.is_action_just_pressed("jump"):
+				velocity.x = get_wall_normal().x * maxSpeed
+				_change_state(States.Jump)
+				
+			var input_dir = Input.get_axis("right", "left")
+			var wall_normal = get_wall_normal().x
+			var is_pushing_into_wall = (wall_normal > 0 and input_dir < 0) or (wall_normal < 0 and input_dir > 0)
+			#Cling ONLY if player is pressing input into wall
+			if !is_pushing_into_wall:
+				_change_state(States.Fall)
+				 
 	move_and_slide()
+		
 
 func _process(delta: float) -> void:
 	jumpBufferTimer -= delta
@@ -113,14 +152,22 @@ func _change_state(NewState: States) -> void:
 	CurrentState = NewState
 	match CurrentState:
 		States.Idle:
+			#Refill stamina on floor
+			if is_on_floor():
+				currentStamina = maxStamina
 			velocity = Vector2.ZERO
 		States.Run:
+			if is_on_floor():
+				currentStamina = maxStamina
 			Speed = baseSpeed
 		States.Jump:
 			velocity.y = jumpVelocity
+			Momentum = abs(velocity.x)
 		States.Fall:
 			coyoteTimer = coyoteTime
 			Momentum = abs(velocity.x)
+		States.WallCling:
+			velocity = Vector2.ZERO
 
 func _respawn() -> void:
 	global_position = checkpoint

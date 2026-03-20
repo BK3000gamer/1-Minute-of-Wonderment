@@ -1,13 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://br58bq2w5rfyp"]
+[gd_scene format=3 uid="uid://br58bq2w5rfyp"]
 
 [ext_resource type="Script" uid="uid://63cnxvm1hgyl" path="res://Scripts/spike.gd" id="1_cdj5a"]
+[ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="2_1hotg"]
 
-[node name="Spike" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mnih"]
+size = Vector2(36.65166, 100.92598)
+
+[node name="LongSpike" type="Area2D" unique_id=564621943]
 script = ExtResource("1_cdj5a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177884332]
 modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.3153085, 0.8079148)
+texture = ExtResource("2_1hotg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630652847]
+position = Vector2(4.7683716e-07, -1.9073486e-06)
+scale = Vector2(1.036788, 1.0106417)
+shape = SubResource("RectangleShape2D_2mnih")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
