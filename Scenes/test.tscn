@@ -361,7 +361,7 @@ position = Vector2(-205.85107, 73)
 scale = Vector2(-0.1680566, 0.47658437)
 
 [node name="StaticBody2D" parent="Room3" unique_id=853974803 instance=ExtResource("11_aees8")]
-position = Vector2(-901.06396, -58)
+position = Vector2(-900.53204, -58)
 scale = Vector2(1.608509, 2.917129)
 
 [node name="Platform+Collision2" parent="Room3" unique_id=373505003 instance=ExtResource("11_yb21e")]
@@ -528,6 +528,10 @@ scale = Vector2(1, 0.21276596)
 position = Vector2(312.23407, -58)
 rotation = -1.5707964
 scale = Vector2(5.9600015, 0.2127608)
+
+[node name="StaticBody2D5" parent="Room3" unique_id=772064826 instance=ExtResource("11_aees8")]
+position = Vector2(-852.1278, -58)
+scale = Vector2(1, 2.9199977)
 
 [editable path="Room"]
 [editable path="Room/Platform"]
