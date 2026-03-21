@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://xcepwtrhmcsy" path="res://Scenes/grab_ledge.tscn" id="11_aees8"]
 [ext_resource type="PackedScene" uid="uid://dlc0a5j01vhyu" path="res://Scenes/platform+collision.tscn" id="11_yb21e"]
 [ext_resource type="PackedScene" uid="uid://brmmgi5qnoluf" path="res://Scenes/falling_platform.tscn" id="13_aees8"]
-[ext_resource type="PackedScene" uid="uid://ibo8fxm4otsx" path="res://Scenes/moving_platform.tscn" id="14_mie3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys1qc"]
 size = Vector2(128, 96)
@@ -75,7 +74,7 @@ position = Vector2(2418, 413)
 scale = Vector2(1, 0.39999944)
 timer = NodePath("../Timer")
 
-[node name="Emu" parent="." unique_id=855995562 groups=["player"] instance=ExtResource("2_8od7v")]
+[node name="Emu" parent="." unique_id=855995562 instance=ExtResource("2_8od7v")]
 position = Vector2(32, 248)
 baseSpeed = 149.9999999999952
 maxSpeed = 299.9999999999904
@@ -89,16 +88,12 @@ coyoteTime = 0.0499999999999984
 
 [node name="Camera2D" type="Camera2D" parent="Emu" unique_id=1385921575]
 position = Vector2(288, -68)
-offset = Vector2(50, 10)
-limit_enabled = false
-limit_top = -1000000000
+offset = Vector2(30, 0)
 position_smoothing_enabled = true
 
 [node name="Room" parent="." unique_id=819998887 node_paths=PackedStringArray("camera") instance=ExtResource("4_ys1qc")]
 position = Vector2(320, 180)
 camera = NodePath("../Emu/Camera2D")
-room_width = 650.0
-room_height = 360.0
 
 [node name="Checkpoint" parent="Room" index="1"]
 position = Vector2(-288, 68)
@@ -197,9 +192,6 @@ timer = NodePath("../../Timer")
 [node name="Room2" parent="." unique_id=1709372642 node_paths=PackedStringArray("camera") instance=ExtResource("4_ys1qc")]
 position = Vector2(960, 308)
 camera = NodePath("../Emu/Camera2D")
-camera_y_offset = 50.0
-room_width = 650.0
-room_height = 360.0
 
 [node name="Checkpoint" parent="Room2" index="1"]
 position = Vector2(-288, -92)
@@ -317,8 +309,6 @@ timer = NodePath("../../Timer")
 [node name="Room3" parent="." unique_id=1545109834 instance=ExtResource("4_ys1qc")]
 position = Vector2(1880.0001, 301)
 scale = Vector2(1.8799999, 1)
-room_width = 1200.0
-room_height = 360.0
 
 [node name="Checkpoint" parent="Room3" index="1"]
 position = Vector2(-259.04263, 64)
@@ -345,15 +335,14 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0c07c")
 
 [node name="Spike3" parent="Room3/Spike3" unique_id=1071651448 instance=ExtResource("5_i3aeo")]
-position = Vector2(6.3829823, -346)
+position = Vector2(38.297813, -320)
 scale = Vector2(1, 1.72)
 
 [node name="Sprite2D" parent="Room3/Spike3/Spike3" index="0" unique_id=177884332]
-position = Vector2(-19.89363, -11.325579)
 scale = Vector2(5, 0.25)
 
 [node name="CollisionShape2D" parent="Room3/Spike3/Spike3" index="1" unique_id=630652847]
-position = Vector2(-19.89363, -3.3255787)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0c07c")
 
 [node name="Platform+Collision" parent="Room3" unique_id=405098085 instance=ExtResource("11_yb21e")]
@@ -368,8 +357,8 @@ scale = Vector2(1.608509, 2.917129)
 position = Vector2(-181.91492, 58.00003)
 scale = Vector2(0.1801623, 0.7349508)
 
-[node name="LongSpike" parent="Room3" unique_id=1047935993 instance=ExtResource("5_i3aeo")]
-position = Vector2(-117.02135, -38)
+[node name="LongSpike" parent="Room3" unique_id=564621943 instance=ExtResource("5_i3aeo")]
+position = Vector2(-117.02135, -33)
 scale = Vector2(0.5531889, 2.1200013)
 
 [node name="Breaking Platform" parent="Room3" unique_id=619216877 instance=ExtResource("7_5wyu1")]
@@ -381,7 +370,7 @@ position = Vector2(-163.29793, 14)
 scale = Vector2(0.17091358, 0.31301203)
 
 [node name="Platform+Collision4" parent="Room3" unique_id=618465693 instance=ExtResource("11_yb21e")]
-position = Vector2(-112.76604, 51)
+position = Vector2(-111.70221, 60)
 scale = Vector2(0.1018138, 0.3280865)
 
 [node name="Breaking Platform2" parent="Room3" unique_id=1451162915 instance=ExtResource("7_5wyu1")]
@@ -393,7 +382,7 @@ position = Vector2(-123.40433, 141)
 scale = Vector2(0.53191495, 1)
 
 [node name="StaticBody2D2" parent="Room3" unique_id=89208364 instance=ExtResource("11_aees8")]
-position = Vector2(-106.38307, 91)
+position = Vector2(-105.85116, 101)
 scale = Vector2(0.24144663, 4.391363)
 
 [node name="LongSpike2" parent="Room3" unique_id=2140381526 instance=ExtResource("5_i3aeo")]
@@ -401,42 +390,41 @@ position = Vector2(-70.21283, 106)
 scale = Vector2(0.46807986, 0.78843945)
 
 [node name="Breaking Platform4" parent="Room3" unique_id=2073950979 instance=ExtResource("7_5wyu1")]
-position = Vector2(-34.574543, 142)
+position = Vector2(-36.170288, 74)
 scale = Vector2(0.53191495, 1)
 
 [node name="Breaking Platform5" parent="Room3" unique_id=1056055794 instance=ExtResource("7_5wyu1")]
 position = Vector2(-51.595825, 142)
 scale = Vector2(0.53191495, 1)
 
-[node name="Clock4" parent="Room3" unique_id=128959666 node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
+[node name="Clock" parent="Room3" unique_id=128959666 instance=ExtResource("10_iaow0")]
 position = Vector2(-52.127747, 127)
 scale = Vector2(0.53191495, 1)
-timer = NodePath("../../Timer")
 
 [node name="LongSpike3" parent="Room3" unique_id=112283401 instance=ExtResource("5_i3aeo")]
-position = Vector2(-4.7872696, 38)
-rotation = -0.49385893
+position = Vector2(-3.1915894, 44.99994)
+rotation = -0.84406495
 scale = Vector2(0.6869883, 0.9005446)
 skew = 0.5359565
 
 [node name="Breaking Platform6" parent="Room3" unique_id=136865723 instance=ExtResource("7_5wyu1")]
-position = Vector2(-17.021343, 142)
+position = Vector2(-5.319214, 143)
 scale = Vector2(0.53191495, 1)
 
 [node name="Breaking Platform7" parent="Room3" unique_id=1082179932 instance=ExtResource("7_5wyu1")]
-position = Vector2(-3.71933e-05, 142)
+position = Vector2(11.702026, 143)
 scale = Vector2(0.53191495, 1)
 
 [node name="Breaking Platform8" parent="Room3" unique_id=904451972 instance=ExtResource("7_5wyu1")]
-position = Vector2(17.021198, 142)
+position = Vector2(28.723328, 143)
 scale = Vector2(0.53191495, 1)
 
 [node name="Breaking Platform9" parent="Room3" unique_id=1706626760 instance=ExtResource("7_5wyu1")]
-position = Vector2(34.042503, 142)
+position = Vector2(45.744568, 143)
 scale = Vector2(0.53191495, 1)
 
-[node name="Platform+Collision5" parent="Room3" unique_id=1428958211 instance=ExtResource("11_yb21e")]
-position = Vector2(29.25524, 97)
+[node name="Platform+Collision5" parent="Room3" unique_id=708519568 instance=ExtResource("11_yb21e")]
+position = Vector2(28.191345, 93)
 scale = Vector2(0.10470328, 0.19812754)
 
 [node name="Platform+Collision6" parent="Room3" unique_id=1693433507 instance=ExtResource("11_yb21e")]
@@ -444,90 +432,36 @@ position = Vector2(108.51056, 67)
 scale = Vector2(0.53191495, 1.4964695)
 
 [node name="Breaking Platform10" parent="Room3" unique_id=1402051181 instance=ExtResource("7_5wyu1")]
-position = Vector2(67.021126, 54)
+position = Vector2(57.9787, 54.00003)
 scale = Vector2(0.42540324, 0.8127452)
 
+[node name="Breaking Platform11" parent="Room3" unique_id=1425007862 instance=ExtResource("7_5wyu1")]
+position = Vector2(27.127625, 15)
+scale = Vector2(0.36815244, 0.6608003)
+
+[node name="Breaking Platform12" parent="Room3" unique_id=1922170655 instance=ExtResource("7_5wyu1")]
+position = Vector2(68.61688, -11)
+scale = Vector2(0.42512655, 0.6948868)
+
 [node name="Platform+Collision7" parent="Room3" unique_id=739676168 instance=ExtResource("11_yb21e")]
-position = Vector2(-23.404295, -54)
+position = Vector2(-23.93634, -72.999985)
 scale = Vector2(1.2978725, 0.2400012)
 
-[node name="Clock3" parent="Room3" unique_id=310632367 node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
-position = Vector2(-97.87244, -92)
+[node name="Clock2" parent="Room3" unique_id=310632367 instance=ExtResource("10_iaow0")]
+position = Vector2(-97.87244, -106)
 scale = Vector2(0.53191495, 1)
-timer = NodePath("../../Timer")
 
 [node name="Falling Platform" parent="Room3" unique_id=1336044767 instance=ExtResource("13_aees8")]
-position = Vector2(25.531864, -179)
+position = Vector2(30.851013, -133)
 scale = Vector2(0.119186796, 0.1808042)
 
 [node name="Falling Platform2" parent="Room3" unique_id=1836850103 instance=ExtResource("13_aees8")]
-position = Vector2(-17.021313, -178)
+position = Vector2(-13.297974, -133)
 scale = Vector2(0.121653214, 0.1795503)
 
 [node name="Falling Platform3" parent="Room3" unique_id=965503143 instance=ExtResource("13_aees8")]
-position = Vector2(-57.446907, -173.99998)
+position = Vector2(-57.97882, -132.99998)
 scale = Vector2(0.12093348, 0.1900718)
-
-[node name="Breaking Platform11" parent="Room3" unique_id=981917616 instance=ExtResource("7_5wyu1")]
-position = Vector2(49.468037, 142)
-scale = Vector2(0.46807986, 1)
-
-[node name="Platform+Collision8" parent="Room3" unique_id=763270110 instance=ExtResource("11_yb21e")]
-position = Vector2(-76.595764, 96)
-scale = Vector2(0.054503776, 0.20330106)
-
-[node name="StaticBody2D3" parent="Room3" unique_id=2023597995 instance=ExtResource("11_aees8")]
-position = Vector2(-79.78729, 117)
-rotation = 3.1415927
-scale = Vector2(0.11434131, -2.283313)
-
-[node name="Platform+Collision9" parent="Room3" unique_id=2088220470 instance=ExtResource("11_yb21e")]
-position = Vector2(65.425476, 132)
-scale = Vector2(0.1273449, 0.22361039)
-
-[node name="StaticBody2D4" parent="Room3" unique_id=206423305 instance=ExtResource("11_aees8")]
-position = Vector2(76.59564, 10)
-scale = Vector2(0.53191495, 2.6)
-
-[node name="LongSpike4" parent="Room3" unique_id=139990463 instance=ExtResource("5_i3aeo")]
-position = Vector2(-71.276794, -32)
-rotation = -1.5707964
-scale = Vector2(0.27714598, 0.61732787)
-
-[node name="Moving Platform" parent="Room3" unique_id=1452292274 instance=ExtResource("14_mie3u")]
-position = Vector2(177.65953, 8)
-scale = Vector2(-0.23615515, 0.39029285)
-
-[node name="Platform+Collision10" parent="Room3" unique_id=708519568 instance=ExtResource("11_yb21e")]
-position = Vector2(286.7021, 131)
-scale = Vector2(0.53191495, 1)
-
-[node name="LongSpike5" parent="Room3" unique_id=564621943 instance=ExtResource("5_i3aeo")]
-position = Vector2(156.91486, -121)
-scale = Vector2(0.53191495, 1)
-
-[node name="LongSpike6" parent="Room3" unique_id=2120518084 instance=ExtResource("5_i3aeo")]
-position = Vector2(193.617, -21.00003)
-rotation = 3.1415927
-scale = Vector2(0.4799569, -0.33644998)
-
-[node name="LongSpike7" parent="Room3" unique_id=722300625 instance=ExtResource("5_i3aeo")]
-position = Vector2(238.82977, -122)
-scale = Vector2(0.53191495, 1)
-
-[node name="LongSpike8" parent="Room3" unique_id=1615839516 instance=ExtResource("5_i3aeo")]
-position = Vector2(242.55316, 57)
-scale = Vector2(0.53191495, 1)
-
-[node name="LongSpike9" parent="Room3" unique_id=146916177 instance=ExtResource("5_i3aeo")]
-position = Vector2(260.63824, 27)
-rotation = -1.5707964
-scale = Vector2(1, 0.21276596)
-
-[node name="LongSpike10" parent="Room3" unique_id=1548193473 instance=ExtResource("5_i3aeo")]
-position = Vector2(312.23407, -58)
-rotation = -1.5707964
-scale = Vector2(5.9600015, 0.2127608)
 
 [editable path="Room"]
 [editable path="Room/Platform"]

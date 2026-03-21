@@ -1,23 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://brmmgi5qnoluf"]
+[gd_scene format=3 uid="uid://brmmgi5qnoluf"]
 
 [ext_resource type="Script" uid="uid://hdx6wogrte13" path="res://Scripts/falling_platform.gd" id="1_0msxf"]
 [ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="2_lx48v"]
 
-[node name="Falling Platform" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0msxf"]
+size = Vector2(62.159233, 61.36987)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx48v"]
+size = Vector2(126, 476)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tybl"]
+size = Vector2(82, 35.5)
+
+[node name="Falling Platform" type="CharacterBody2D" unique_id=2042858422]
 script = ExtResource("1_0msxf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1787070120]
 texture = ExtResource("2_lx48v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501382324]
+position = Vector2(1, -1)
+scale = Vector2(1.9787887, 2.012584)
+shape = SubResource("RectangleShape2D_0msxf")
 
-[node name="Trigger" type="Area2D" parent="."]
+[node name="Trigger" type="Area2D" parent="." unique_id=799779259]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=1692029173]
+position = Vector2(0, 228)
+scale = Vector2(1.0045365, 1)
+shape = SubResource("RectangleShape2D_lx48v")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1451433060]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=979727740]
+position = Vector2(2, 51)
+shape = SubResource("RectangleShape2D_0tybl")
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
