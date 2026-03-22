@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ibo8fxm4otsx"]
+
+[ext_resource type="Script" uid="uid://dmnn375rm1j7y" path="res://Scripts/moving_platform.gd" id="1_anqd2"]
+[ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="1_vvyo4"]
+
+[sub_resource type="Animation" id="Animation_tdwu5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0773j"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.5, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_odsga"]
+_data = {
+&"RESET": SubResource("Animation_tdwu5"),
+&"move": SubResource("Animation_0773j")
+}
+
+[node name="Moving Platform" type="Path2D" unique_id=1004918871]
+script = ExtResource("1_anqd2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=530363166]
+position = Vector2(-119, -4)
+rotation = 0.033600792
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=1219247816]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=944955649]
+position = Vector2(-119, -4)
+rotation = 0.033600792
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=246275394]
+texture = ExtResource("1_vvyo4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=270251958]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1676475681]
+libraries/ = SubResource("AnimationLibrary_odsga")

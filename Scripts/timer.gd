@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 		timer -= delta
 	m = int(timer/60)
 	s = timer - m * 60
+	if timer < 0.0:
+		_end(true)
 	clock.text = "%01d:%02d" % [m, s]
 
 func _start() -> void:
@@ -23,12 +25,15 @@ func _start() -> void:
 	timer = time
 	clock.visible = true
 
-func _end() -> void:
+func _end(failed: bool) -> void:
 	active = false
 	var rm = m
 	var rs = s
 	timer = 0
 	clock.visible = false
 	score.visible = true
-	score.text = "Clocks Collected: %02d\nTime Remaining: %01d:%02d" % [collected, rm, rs]
+	if failed:
+		score.text = "Clocks Collected: %02d\nPress [R] to Restart" % [collected]
+	else:
+		score.text = "Clocks Collected: %02d\nTime Remaining: %01d:%02d" % [collected, rm, rs]
 	get_tree().paused = true

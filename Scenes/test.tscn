@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dh5xoefewfoel"]
+[gd_scene format=3 uid="uid://dh5xoefewfoel"]
 
 [ext_resource type="PackedScene" uid="uid://s13ukyw6wp8c" path="res://UI/timer.tscn" id="1_0c07c"]
 [ext_resource type="Script" uid="uid://cvdjsbi0b1ag5" path="res://Scripts/reset.gd" id="1_qpfo2"]
@@ -11,8 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="6_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://bnupcupo4t06u" path="res://Scenes/breaking_platform.tscn" id="7_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://c0okii45uhn2y" path="res://Scenes/clock.tscn" id="10_iaow0"]
+[ext_resource type="PackedScene" uid="uid://20eou45kfmfm" path="res://Scenes/one_way_platform.tscn" id="12_mie3u"]
 [ext_resource type="PackedScene" uid="uid://bk5j5n3ioxs03" path="res://Scenes/water.tscn" id="12_yb21e"]
 [ext_resource type="PackedScene" uid="uid://brmmgi5qnoluf" path="res://Scenes/falling_platform.tscn" id="13_aees8"]
+[ext_resource type="PackedScene" uid="uid://c1tehxf2qdyhg" path="res://Scenes/boost_area.tscn" id="15_0qy5o"]
+[ext_resource type="PackedScene" uid="uid://dnv8gql1s7srd" path="res://Scenes/spinning_ball.tscn" id="16_7nf3m"]
+[ext_resource type="PackedScene" uid="uid://ibo8fxm4otsx" path="res://Scenes/moving_platform.tscn" id="17_2ocox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys1qc"]
 size = Vector2(128, 96)
@@ -53,8 +57,11 @@ size = Vector2(32, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nf3m"]
 size = Vector2(32, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m64o6"]
+size = Vector2(96, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuf18"]
-size = Vector2(160, 128)
+size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sys"]
 size = Vector2(16, 32)
@@ -69,35 +76,182 @@ size = Vector2(240, 16)
 size = Vector2(240, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjyqs"]
-size = Vector2(128, 128)
+size = Vector2(96, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxtw2"]
-size = Vector2(128, 128)
+size = Vector2(96, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhq6j"]
-size = Vector2(128, 48)
+size = Vector2(96, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgu05"]
+size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nkef"]
+size = Vector2(96, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpf1r"]
+size = Vector2(240, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn8tc"]
+size = Vector2(208, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55gk5"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnpbo"]
+size = Vector2(16, 304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkh07"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jg6l"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlfrn"]
+size = Vector2(16, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j44qy"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66mtb"]
+size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipur1"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fddv"]
+size = Vector2(240, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqbs1"]
+size = Vector2(144, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_051wo"]
+size = Vector2(144, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d83ya"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ocgh"]
+size = Vector2(96, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcn80"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbh6s"]
 size = Vector2(128, 16)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wv1b"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klam7"]
+size = Vector2(32, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs4hy"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvn65"]
+size = Vector2(512, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tq4f"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud6rk"]
+size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epukl"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg5m0"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17bvh"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ch40"]
+size = Vector2(128, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjvbe"]
+size = Vector2(144, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqbdk"]
+size = Vector2(32, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_mgie7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 96, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iykje"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgie7"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duwi1"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avh4v"]
+size = Vector2(32, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0014c"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyxnv"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysmh5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3rva"]
+size = Vector2(64, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_2ocox"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq6ew"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fosxv"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr60i"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cmsv"]
+size = Vector2(128, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afdc1"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt1xq"]
+size = Vector2(128, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ba60"]
+size = Vector2(32, 16)
+
+[node name="Node2D" type="Node2D" unique_id=1346362531]
 process_mode = 1
 
-[node name="Reset" type="Node" parent="."]
+[node name="Reset" type="Node" parent="." unique_id=680733139]
 process_mode = 3
 script = ExtResource("1_qpfo2")
 
-[node name="Timer" parent="." instance=ExtResource("1_0c07c")]
+[node name="Timer" parent="." unique_id=2073524966 instance=ExtResource("1_0c07c")]
 
-[node name="Start" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_2cgwh")]
+[node name="Start" parent="." unique_id=1444238836 node_paths=PackedStringArray("timer") instance=ExtResource("2_2cgwh")]
 position = Vector2(64, 180)
 timer = NodePath("../Timer")
 
-[node name="End" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("3_2cgwh")]
-position = Vector2(1856, 216)
+[node name="End" parent="." unique_id=1721604472 node_paths=PackedStringArray("timer") instance=ExtResource("3_2cgwh")]
+position = Vector2(4288, -216)
 timer = NodePath("../Timer")
 
-[node name="Emu" parent="." instance=ExtResource("2_8od7v")]
+[node name="Emu" parent="." unique_id=481738905 instance=ExtResource("2_8od7v")]
 position = Vector2(32, 248)
 baseSpeed = 149.9999999999952
 maxSpeed = 299.9999999999904
@@ -109,16 +263,16 @@ jumpTimeToDecent = 0.249999999999992
 jumpBufferTime = 0.0499999999999984
 coyoteTime = 0.0499999999999984
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1814358509]
 position = Vector2(320, 180)
 
-[node name="Room" parent="." instance=ExtResource("4_ys1qc")]
+[node name="Room" parent="." unique_id=830652874 instance=ExtResource("4_ys1qc")]
 position = Vector2(320, 180)
 
 [node name="Checkpoint" parent="Room" index="1"]
 position = Vector2(-288, 68)
 
-[node name="Platform" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform" parent="Room" unique_id=83045782 instance=ExtResource("3_qc4db")]
 position = Vector2(-288, 100)
 
 [node name="CollisionShape2D" parent="Room/Platform" index="0"]
@@ -129,7 +283,7 @@ shape = SubResource("RectangleShape2D_ys1qc")
 position = Vector2(32, 32)
 scale = Vector2(1, 0.75)
 
-[node name="Spike" parent="Room" instance=ExtResource("5_i3aeo")]
+[node name="Spike" parent="Room" unique_id=1489154307 instance=ExtResource("5_i3aeo")]
 position = Vector2(0, 164)
 
 [node name="Sprite2D" parent="Room/Spike" index="0"]
@@ -140,7 +294,7 @@ texture = ExtResource("6_5wyu1")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0c07c")
 
-[node name="Platform2" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform2" parent="Room" unique_id=1728960977 instance=ExtResource("3_qc4db")]
 position = Vector2(-80, 116)
 
 [node name="CollisionShape2D" parent="Room/Platform2" index="0"]
@@ -150,7 +304,7 @@ shape = SubResource("RectangleShape2D_i3aeo")
 position = Vector2(2.3841858e-06, 0)
 scale = Vector2(0.49999985, 1)
 
-[node name="Platform3" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform3" parent="Room" unique_id=1760626421 instance=ExtResource("3_qc4db")]
 position = Vector2(-96, 36)
 
 [node name="CollisionShape2D" parent="Room/Platform3" index="0"]
@@ -161,7 +315,7 @@ shape = SubResource("RectangleShape2D_5wyu1")
 position = Vector2(8, -1.9073486e-06)
 scale = Vector2(0.875, 0.25000003)
 
-[node name="Platform4" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform4" parent="Room" unique_id=1545743019 instance=ExtResource("3_qc4db")]
 position = Vector2(128, 148)
 
 [node name="CollisionShape2D" parent="Room/Platform4" index="0"]
@@ -171,7 +325,7 @@ shape = SubResource("RectangleShape2D_2cgwh")
 position = Vector2(1.335144e-05, 4.7683716e-06)
 scale = Vector2(1.4999998, 0.49999997)
 
-[node name="Spike2" parent="Room" instance=ExtResource("5_i3aeo")]
+[node name="Spike2" parent="Room" unique_id=2016889821 instance=ExtResource("5_i3aeo")]
 position = Vector2(112, 100)
 
 [node name="Sprite2D" parent="Room/Spike2" index="0"]
@@ -183,7 +337,7 @@ texture = ExtResource("6_5wyu1")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_iaow0")
 
-[node name="Platform5" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform5" parent="Room" unique_id=427833716 instance=ExtResource("3_qc4db")]
 position = Vector2(288, 116)
 
 [node name="CollisionShape2D" parent="Room/Platform5" index="0"]
@@ -194,10 +348,10 @@ shape = SubResource("RectangleShape2D_qpfo2")
 position = Vector2(16.000017, 64)
 scale = Vector2(1.2500004, 2)
 
-[node name="Breaking Platform" parent="Room" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform" parent="Room" unique_id=1528777531 instance=ExtResource("7_5wyu1")]
 position = Vector2(80, -44)
 
-[node name="Platform6" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform6" parent="Room" unique_id=997143398 instance=ExtResource("3_qc4db")]
 position = Vector2(240, -92)
 
 [node name="CollisionShape2D" parent="Room/Platform6" index="0"]
@@ -207,17 +361,16 @@ shape = SubResource("RectangleShape2D_yb21e")
 position = Vector2(1.21593475e-05, -1.9073486e-06)
 scale = Vector2(0.49999985, 0.25000003)
 
-[node name="Clock" parent="Room" node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
+[node name="Clock" parent="Room" unique_id=1184919251 instance=ExtResource("10_iaow0")]
 position = Vector2(240, -124)
-timer = NodePath("../../Timer")
 
-[node name="Room2" parent="." instance=ExtResource("4_ys1qc")]
+[node name="Room2" parent="." unique_id=610074470 instance=ExtResource("4_ys1qc")]
 position = Vector2(960, 308)
 
 [node name="Checkpoint" parent="Room2" index="1"]
 position = Vector2(-288, -92)
 
-[node name="Spike3" parent="Room2" instance=ExtResource("5_i3aeo")]
+[node name="Spike3" parent="Room2" unique_id=1392719273 instance=ExtResource("5_i3aeo")]
 position = Vector2(0, 164)
 
 [node name="Sprite2D" parent="Room2/Spike3" index="0"]
@@ -228,49 +381,49 @@ texture = ExtResource("6_5wyu1")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0c07c")
 
-[node name="Breaking Platform2" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform2" parent="Room2" unique_id=640731795 instance=ExtResource("7_5wyu1")]
 position = Vector2(-240, -76)
 
-[node name="Breaking Platform3" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform3" parent="Room2" unique_id=3170262 instance=ExtResource("7_5wyu1")]
 position = Vector2(-208, -76)
 
-[node name="Breaking Platform4" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform4" parent="Room2" unique_id=2015586296 instance=ExtResource("7_5wyu1")]
 position = Vector2(-176, -76)
 
-[node name="Breaking Platform5" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform5" parent="Room2" unique_id=329493138 instance=ExtResource("7_5wyu1")]
 position = Vector2(-144, -76)
 
-[node name="Breaking Platform6" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform6" parent="Room2" unique_id=1750028162 instance=ExtResource("7_5wyu1")]
 position = Vector2(-112, -76)
 
-[node name="Breaking Platform7" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform7" parent="Room2" unique_id=134190134 instance=ExtResource("7_5wyu1")]
 position = Vector2(-80, -76)
 
-[node name="Breaking Platform8" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform8" parent="Room2" unique_id=745272112 instance=ExtResource("7_5wyu1")]
 position = Vector2(-48, -76)
 
-[node name="Breaking Platform9" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform9" parent="Room2" unique_id=1652050534 instance=ExtResource("7_5wyu1")]
 position = Vector2(-16, -76)
 
-[node name="Breaking Platform10" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform10" parent="Room2" unique_id=1781219453 instance=ExtResource("7_5wyu1")]
 position = Vector2(16, -76)
 
-[node name="Breaking Platform11" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform11" parent="Room2" unique_id=1698535512 instance=ExtResource("7_5wyu1")]
 position = Vector2(48, -76)
 
-[node name="Breaking Platform12" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform12" parent="Room2" unique_id=2141848904 instance=ExtResource("7_5wyu1")]
 position = Vector2(80, -76)
 
-[node name="Breaking Platform13" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform13" parent="Room2" unique_id=1840617013 instance=ExtResource("7_5wyu1")]
 position = Vector2(112, -76)
 
-[node name="Breaking Platform14" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform14" parent="Room2" unique_id=274458493 instance=ExtResource("7_5wyu1")]
 position = Vector2(144, -76)
 
-[node name="Breaking Platform15" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform15" parent="Room2" unique_id=387697315 instance=ExtResource("7_5wyu1")]
 position = Vector2(176, -76)
 
-[node name="Platform11" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform11" parent="Room2" unique_id=1001115950 instance=ExtResource("3_qc4db")]
 position = Vector2(288, 100)
 
 [node name="CollisionShape2D" parent="Room2/Platform11" index="0"]
@@ -281,7 +434,7 @@ shape = SubResource("RectangleShape2D_2ocox")
 position = Vector2(-32, 8.000012)
 scale = Vector2(1, 0.625)
 
-[node name="Platform7" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform7" parent="Room2" unique_id=70166264 instance=ExtResource("3_qc4db")]
 position = Vector2(240, -60)
 
 [node name="CollisionShape2D" parent="Room2/Platform7" index="0"]
@@ -292,7 +445,7 @@ shape = SubResource("RectangleShape2D_aees8")
 position = Vector2(4.553795e-05, 7.9999943)
 scale = Vector2(0.7500001, 0.3750001)
 
-[node name="Platform8" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform8" parent="Room2" unique_id=454520621 instance=ExtResource("3_qc4db")]
 position = Vector2(-96, 84)
 
 [node name="CollisionShape2D" parent="Room2/Platform8" index="0"]
@@ -303,7 +456,7 @@ shape = SubResource("RectangleShape2D_mie3u")
 position = Vector2(2.2888184e-05, 24)
 scale = Vector2(0.25000036, 0.625)
 
-[node name="Platform9" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform9" parent="Room2" unique_id=920586033 instance=ExtResource("3_qc4db")]
 position = Vector2(32, 84)
 
 [node name="CollisionShape2D" parent="Room2/Platform9" index="0"]
@@ -313,7 +466,7 @@ shape = SubResource("RectangleShape2D_0qy5o")
 position = Vector2(-1.5258789e-05, 0)
 scale = Vector2(0.24999976, 1)
 
-[node name="Platform10" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform10" parent="Room2" unique_id=1673020533 instance=ExtResource("3_qc4db")]
 position = Vector2(128, 116)
 
 [node name="CollisionShape2D" parent="Room2/Platform10" index="0"]
@@ -324,27 +477,35 @@ shape = SubResource("RectangleShape2D_7nf3m")
 position = Vector2(-1.5258789e-05, 7.9999905)
 scale = Vector2(0.24999976, 0.37499985)
 
-[node name="Clock2" parent="Room2" node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
+[node name="Clock2" parent="Room2" unique_id=1667113709 instance=ExtResource("10_iaow0")]
 position = Vector2(-96, 52)
-timer = NodePath("../../Timer")
 
-[node name="Room3" parent="." instance=ExtResource("4_ys1qc")]
+[node name="One Way Platform" parent="Room2" unique_id=360738537 instance=ExtResource("12_mie3u")]
+position = Vector2(-320, -124)
+
+[node name="CollisionShape2D" parent="Room2/One Way Platform" index="0" unique_id=976274013]
+position = Vector2(0, -8)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_m64o6")
+
+[node name="Room3" parent="." unique_id=669540663 instance=ExtResource("4_ys1qc")]
 position = Vector2(1600, 212)
 
 [node name="Checkpoint" parent="Room3" index="1"]
 position = Vector2(-288, 100)
 
-[node name="Platform12" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform12" parent="Room3" unique_id=226838969 instance=ExtResource("3_qc4db")]
 position = Vector2(-272, 180)
 
 [node name="CollisionShape2D" parent="Room3/Platform12" index="0"]
+position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_kuf18")
 
 [node name="Sprite2D" parent="Room3/Platform12" index="1"]
-position = Vector2(3.0517578e-05, 0)
-scale = Vector2(1.2499995, 1)
+position = Vector2(-15.9999485, 0)
+scale = Vector2(0.9999999, 1)
 
-[node name="Platform" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform" parent="Room3" unique_id=690059855 instance=ExtResource("3_qc4db")]
 position = Vector2(-288, -92)
 
 [node name="CollisionShape2D" parent="Room3/Platform" index="0"]
@@ -355,7 +516,7 @@ shape = SubResource("RectangleShape2D_q8sys")
 position = Vector2(-8, 3.8146973e-06)
 scale = Vector2(0.125, 0.25000006)
 
-[node name="Platform2" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform2" parent="Room3" unique_id=895009863 instance=ExtResource("3_qc4db")]
 position = Vector2(-48, -92)
 
 [node name="CollisionShape2D" parent="Room3/Platform2" index="0"]
@@ -366,7 +527,7 @@ shape = SubResource("RectangleShape2D_n0wup")
 position = Vector2(8, -1.5258789e-05)
 scale = Vector2(0.125, 0.24999976)
 
-[node name="Platform3" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform3" parent="Room3" unique_id=1145189789 instance=ExtResource("3_qc4db")]
 position = Vector2(-160, -76)
 
 [node name="CollisionShape2D" parent="Room3/Platform3" index="0"]
@@ -377,37 +538,58 @@ shape = SubResource("RectangleShape2D_wojap")
 position = Vector2(-8.000038, -8.000008)
 scale = Vector2(1.8750004, 0.12499988)
 
-[node name="Water" parent="Room3" instance=ExtResource("12_yb21e")]
+[node name="Water" parent="Room3" unique_id=1142715956 instance=ExtResource("12_yb21e")]
 position = Vector2(-160, -108)
 
 [node name="CollisionShape2D" parent="Room3/Water" index="0"]
 position = Vector2(-8, -16)
 shape = SubResource("RectangleShape2D_copon")
 
-[node name="Platform4" parent="Room3" instance=ExtResource("3_qc4db")]
-position = Vector2(96, 116)
+[node name="Platform4" parent="Room3" unique_id=662571135 instance=ExtResource("3_qc4db")]
+position = Vector2(64, 116)
 
 [node name="CollisionShape2D" parent="Room3/Platform4" index="0"]
+position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_wjyqs")
 
-[node name="Breaking Platform" parent="Room3" instance=ExtResource("7_5wyu1")]
-position = Vector2(-80, 68)
+[node name="Sprite2D" parent="Room3/Platform4" index="1"]
+position = Vector2(-16, 0)
+scale = Vector2(0.75, 1)
 
-[node name="Falling Platform" parent="Room3" instance=ExtResource("13_aees8")]
-position = Vector2(96, -140)
+[node name="Breaking Platform" parent="Room3" unique_id=1736229902 instance=ExtResource("7_5wyu1")]
+position = Vector2(-128, 68)
+
+[node name="Falling Platform" parent="Room3" unique_id=1331546533 instance=ExtResource("13_aees8")]
+position = Vector2(64, -140)
+
+[node name="Sprite2D" parent="Room3/Falling Platform" index="0"]
+position = Vector2(-16, 16)
+scale = Vector2(0.75, 0.75)
 
 [node name="CollisionShape2D" parent="Room3/Falling Platform" index="1"]
+position = Vector2(-16, 16)
 shape = SubResource("RectangleShape2D_kxtw2")
 
 [node name="CollisionShape2D" parent="Room3/Falling Platform/Trigger" index="0"]
-position = Vector2(0, 168)
+position = Vector2(-16, 168)
 shape = SubResource("RectangleShape2D_rhq6j")
 
 [node name="CollisionShape2D" parent="Room3/Falling Platform/Hitbox" index="0"]
-position = Vector2(0, 72)
+position = Vector2(-16, 72)
 shape = SubResource("RectangleShape2D_pgu05")
 
-[node name="Spike3" parent="Room3" instance=ExtResource("5_i3aeo")]
+[node name="Platform5" parent="Room3" unique_id=639157422 instance=ExtResource("3_qc4db")]
+position = Vector2(192, 36)
+
+[node name="CollisionShape2D" parent="Room3/Platform5" index="0"]
+position = Vector2(16, 24)
+shape = SubResource("RectangleShape2D_3nkef")
+
+[node name="Sprite2D" parent="Room3/Platform5" index="1"]
+position = Vector2(16, 24)
+scale = Vector2(0.75, 0.625)
+
+[node name="Spike3" parent="Room3" unique_id=326820087 instance=ExtResource("5_i3aeo")]
 position = Vector2(0, 164)
 
 [node name="Sprite2D" parent="Room3/Spike3" index="0"]
@@ -415,6 +597,726 @@ scale = Vector2(5, 0.25)
 texture = ExtResource("6_5wyu1")
 
 [node name="CollisionShape2D" parent="Room3/Spike3" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_0c07c")
+
+[node name="Platform6" parent="Room3" unique_id=1603241951 instance=ExtResource("3_qc4db")]
+position = Vector2(272, -60)
+
+[node name="CollisionShape2D" parent="Room3/Platform6" index="0"]
+position = Vector2(56, 0)
+shape = SubResource("RectangleShape2D_vpf1r")
+
+[node name="Sprite2D" parent="Room3/Platform6" index="1"]
+position = Vector2(55.999947, -2.861023e-06)
+scale = Vector2(1.8749992, 0.49999997)
+
+[node name="Clock" parent="Room3" unique_id=1278819900 instance=ExtResource("10_iaow0")]
+position = Vector2(-176, -124)
+
+[node name="One Way Platform" parent="Room3" unique_id=1114572238 instance=ExtResource("12_mie3u")]
+position = Vector2(-320, 36)
+
+[node name="CollisionShape2D" parent="Room3/One Way Platform" index="0" unique_id=976274013]
+position = Vector2(-3.2014214e-09, -24)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_yn8tc")
+
+[node name="Room4" parent="." unique_id=1404165073 instance=ExtResource("4_ys1qc")]
+position = Vector2(2240, 4)
+
+[node name="Checkpoint" parent="Room4" index="1"]
+position = Vector2(-288, 100)
+
+[node name="One Way Platform" parent="Room4" unique_id=2094374213 instance=ExtResource("12_mie3u")]
+position = Vector2(-320, 68)
+
+[node name="CollisionShape2D" parent="Room4/One Way Platform" index="0" unique_id=976274013]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_m64o6")
+
+[node name="Boost Area" parent="Room4" unique_id=145079859 instance=ExtResource("15_0qy5o")]
+position = Vector2(-240, 100)
+
+[node name="CollisionShape2D" parent="Room4/Boost Area" index="0" unique_id=661886455]
+shape = SubResource("RectangleShape2D_55gk5")
+
+[node name="Boost Area2" parent="Room4" unique_id=1420724685 instance=ExtResource("15_0qy5o")]
+position = Vector2(-208, -28)
+
+[node name="CollisionShape2D" parent="Room4/Boost Area2" index="0" unique_id=661886455]
+shape = SubResource("RectangleShape2D_55gk5")
+
+[node name="Platform" parent="Room4" unique_id=542098239 instance=ExtResource("3_qc4db")]
+position = Vector2(-176, 68)
+
+[node name="CollisionShape2D" parent="Room4/Platform" index="0"]
+position = Vector2(-8, -40)
+shape = SubResource("RectangleShape2D_dnpbo")
+
+[node name="Sprite2D" parent="Room4/Platform" index="1"]
+position = Vector2(-7.9999695, -40)
+scale = Vector2(0.12500048, 2.375)
+
+[node name="Platform2" parent="Room4" unique_id=1908748749 instance=ExtResource("3_qc4db")]
+position = Vector2(-208, 4)
+
+[node name="CollisionShape2D" parent="Room4/Platform2" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_pkh07")
+
+[node name="Sprite2D" parent="Room4/Platform2" index="1"]
+position = Vector2(-1.5258789e-05, -8)
+scale = Vector2(0.24999976, 0.12499999)
+
+[node name="Spike" parent="Room4" unique_id=585576330 instance=ExtResource("5_i3aeo")]
+position = Vector2(-208, 68)
+
+[node name="Sprite2D" parent="Room4/Spike" index="0"]
+position = Vector2(-1.5258789e-05, -8)
+scale = Vector2(0.24999976, 0.875)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room4/Spike" index="1"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_2jg6l")
+
+[node name="Platform3" parent="Room4" unique_id=475329604 instance=ExtResource("3_qc4db")]
+position = Vector2(-48, -60)
+
+[node name="CollisionShape2D" parent="Room4/Platform3" index="0"]
+position = Vector2(-8, -32)
+shape = SubResource("RectangleShape2D_nlfrn")
+
+[node name="Sprite2D" parent="Room4/Platform3" index="1"]
+position = Vector2(-8.000046, -32)
+scale = Vector2(0.124999285, 1.5)
+
+[node name="Platform12" parent="Room4" unique_id=1825459951 instance=ExtResource("3_qc4db")]
+position = Vector2(176, -60)
+
+[node name="CollisionShape2D" parent="Room4/Platform12" index="0"]
+position = Vector2(-8, -32)
+shape = SubResource("RectangleShape2D_nlfrn")
+
+[node name="Sprite2D" parent="Room4/Platform12" index="1"]
+position = Vector2(-8.000046, -32)
+scale = Vector2(0.124999285, 1.5)
+
+[node name="Platform4" parent="Room4" unique_id=1241661273 instance=ExtResource("3_qc4db")]
+position = Vector2(-80, 4)
+
+[node name="CollisionShape2D" parent="Room4/Platform4" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_j44qy")
+
+[node name="Sprite2D" parent="Room4/Platform4" index="1"]
+position = Vector2(1.5258789e-05, -8)
+scale = Vector2(0.24999976, 0.125)
+
+[node name="Platform11" parent="Room4" unique_id=1176843186 instance=ExtResource("3_qc4db")]
+position = Vector2(96, -108)
+
+[node name="CollisionShape2D" parent="Room4/Platform11" index="0"]
+position = Vector2(-32, -8)
+shape = SubResource("RectangleShape2D_66mtb")
+
+[node name="Sprite2D" parent="Room4/Platform11" index="1"]
+position = Vector2(-31.999985, -8)
+scale = Vector2(0.74999976, 0.125)
+
+[node name="Platform5" parent="Room4" unique_id=1307715773 instance=ExtResource("3_qc4db")]
+position = Vector2(-48, 116)
+
+[node name="CollisionShape2D" parent="Room4/Platform5" index="0"]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_ipur1")
+
+[node name="Sprite2D" parent="Room4/Platform5" index="1"]
+position = Vector2(-8.0001335, -8)
+scale = Vector2(0.6250012, 0.125)
+
+[node name="Platform13" parent="Room4" unique_id=685327940 instance=ExtResource("3_qc4db")]
+position = Vector2(128, 100)
+
+[node name="CollisionShape2D" parent="Room4/Platform13" index="0"]
+position = Vector2(72, -8)
+shape = SubResource("RectangleShape2D_4fddv")
+
+[node name="Sprite2D" parent="Room4/Platform13" index="1"]
+position = Vector2(71.99988, -8)
+scale = Vector2(1.8750013, 0.125)
+
+[node name="Platform6" parent="Room4" unique_id=1917734911 instance=ExtResource("3_qc4db")]
+position = Vector2(-32, 4)
+
+[node name="CollisionShape2D" parent="Room4/Platform6" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_j44qy")
+
+[node name="Sprite2D" parent="Room4/Platform6" index="1"]
+position = Vector2(1.5258789e-05, -8)
+scale = Vector2(0.24999976, 0.125)
+
+[node name="Spike4" parent="Room4" unique_id=481361800 instance=ExtResource("5_i3aeo")]
+position = Vector2(0, 164)
+
+[node name="Sprite2D" parent="Room4/Spike4" index="0"]
+scale = Vector2(5, 0.25)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room4/Spike4" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_0c07c")
+
+[node name="Platform7" parent="Room4" unique_id=583081668 instance=ExtResource("3_qc4db")]
+position = Vector2(96, 68)
+
+[node name="CollisionShape2D" parent="Room4/Platform7" index="0"]
+position = Vector2(-8, -40)
+shape = SubResource("RectangleShape2D_dnpbo")
+
+[node name="Sprite2D" parent="Room4/Platform7" index="1"]
+position = Vector2(-7.9999695, -40)
+scale = Vector2(0.12500048, 2.375)
+
+[node name="Boost Area3" parent="Room4" unique_id=1407558855 instance=ExtResource("15_0qy5o")]
+position = Vector2(256, 68)
+jumpHeight = 287.9999999999908
+
+[node name="CollisionShape2D" parent="Room4/Boost Area3" index="0" unique_id=661886455]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_wqbs1")
+
+[node name="One Way Platform2" parent="Room4" unique_id=1961612170 instance=ExtResource("12_mie3u")]
+position = Vector2(256, -188)
+
+[node name="CollisionShape2D" parent="Room4/One Way Platform2" index="0" unique_id=976274013]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_051wo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Room4/One Way Platform2" unique_id=2116369952]
+position = Vector2(0, -5.722046e-06)
+scale = Vector2(1, 0.24999991)
+texture = ExtResource("6_5wyu1")
+
+[node name="Clock" parent="Room4" unique_id=686088564 instance=ExtResource("10_iaow0")]
+position = Vector2(-48, 84)
+
+[node name="Boost Area4" parent="Room4" unique_id=1324495114 instance=ExtResource("15_0qy5o")]
+position = Vector2(-32, -28)
+
+[node name="CollisionShape2D" parent="Room4/Boost Area4" index="0" unique_id=661886455]
+shape = SubResource("RectangleShape2D_d83ya")
+
+[node name="Boost Area5" parent="Room4" unique_id=546645670 instance=ExtResource("15_0qy5o")]
+position = Vector2(-32, 84)
+
+[node name="CollisionShape2D" parent="Room4/Boost Area5" index="0" unique_id=661886455]
+shape = SubResource("RectangleShape2D_d83ya")
+
+[node name="Room5" parent="." unique_id=803024030 instance=ExtResource("4_ys1qc")]
+position = Vector2(2752, -364)
+
+[node name="Checkpoint" parent="Room5" index="1"]
+position = Vector2(-288, 148)
+
+[node name="Platform" parent="Room5" unique_id=1368613021 instance=ExtResource("3_qc4db")]
+position = Vector2(-160, 132)
+
+[node name="CollisionShape2D" parent="Room5/Platform" index="0"]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_0ocgh")
+
+[node name="Sprite2D" parent="Room5/Platform" index="1"]
+position = Vector2(15.999954, 8.000006)
+scale = Vector2(0.7499993, 0.6249999)
+
+[node name="Breaking Platform" parent="Room5" unique_id=1507206829 instance=ExtResource("7_5wyu1")]
+position = Vector2(-144, -60)
+
+[node name="Breaking Platform2" parent="Room5" unique_id=9846799 instance=ExtResource("7_5wyu1")]
+position = Vector2(-112, -60)
+
+[node name="Platform2" parent="Room5" unique_id=200932924 instance=ExtResource("3_qc4db")]
+position = Vector2(-16, -60)
+
+[node name="CollisionShape2D" parent="Room5/Platform2" index="0"]
+shape = SubResource("RectangleShape2D_kcn80")
+
+[node name="Sprite2D" parent="Room5/Platform2" index="1"]
+position = Vector2(-7.6293945e-05, -3.8146973e-06)
+scale = Vector2(0.7499988, 0.24999994)
+
+[node name="Platform5" parent="Room5" unique_id=904357757 instance=ExtResource("3_qc4db")]
+position = Vector2(208, 100)
+
+[node name="CollisionShape2D" parent="Room5/Platform5" index="0"]
+shape = SubResource("RectangleShape2D_kcn80")
+
+[node name="Sprite2D" parent="Room5/Platform5" index="1"]
+position = Vector2(-7.6293945e-05, -3.8146973e-06)
+scale = Vector2(0.7499988, 0.24999994)
+
+[node name="Platform6" parent="Room5" unique_id=1669250628 instance=ExtResource("3_qc4db")]
+position = Vector2(336, 36)
+
+[node name="CollisionShape2D" parent="Room5/Platform6" index="0"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_kcn80")
+
+[node name="Sprite2D" parent="Room5/Platform6" index="1"]
+position = Vector2(15.999837, -3.8146973e-06)
+scale = Vector2(0.99999744, 0.24999994)
+
+[node name="Spinning Ball" parent="Room5" unique_id=719459731 instance=ExtResource("16_7nf3m")]
+position = Vector2(-16, -60)
+
+[node name="Platform3" parent="Room5" unique_id=1652499940 instance=ExtResource("3_qc4db")]
+position = Vector2(-256, 20)
+
+[node name="CollisionShape2D" parent="Room5/Platform3" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_vbh6s")
+
+[node name="Sprite2D" parent="Room5/Platform3" index="1"]
+position = Vector2(0, -8.000006)
+scale = Vector2(1, 0.12500003)
+
+[node name="Boost Area" parent="Room5" unique_id=661206369 instance=ExtResource("15_0qy5o")]
+position = Vector2(-176, 84)
+
+[node name="CollisionShape2D" parent="Room5/Boost Area" index="0" unique_id=661886455]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_7wv1b")
+
+[node name="Platform4" parent="Room5" unique_id=357035958 instance=ExtResource("3_qc4db")]
+position = Vector2(112, -44)
+
+[node name="CollisionShape2D" parent="Room5/Platform4" index="0"]
+shape = SubResource("RectangleShape2D_klam7")
+
+[node name="Sprite2D" parent="Room5/Platform4" index="1"]
+position = Vector2(-9.1552734e-05, 0)
+scale = Vector2(0.24999857, 1)
+
+[node name="Spike" parent="Room5" unique_id=540361872 instance=ExtResource("5_i3aeo")]
+position = Vector2(176, 68)
+
+[node name="Sprite2D" parent="Room5/Spike" index="0"]
+position = Vector2(-1.5258789e-05, 3.8146973e-06)
+scale = Vector2(0.24999976, 0.25000006)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room5/Spike" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_qs4hy")
+
+[node name="Clock" parent="Room5" unique_id=752774306 instance=ExtResource("10_iaow0")]
+position = Vector2(176, -12)
+
+[node name="One Way Platform" parent="Room5" unique_id=1420412304 instance=ExtResource("12_mie3u")]
+position = Vector2(320, -28)
+
+[node name="CollisionShape2D" parent="Room5/One Way Platform" index="0" unique_id=976274013]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_m64o6")
+
+[node name="Spike4" parent="Room5" unique_id=1018759395 instance=ExtResource("5_i3aeo")]
+position = Vector2(0, 164)
+
+[node name="Sprite2D" parent="Room5/Spike4" index="0"]
+position = Vector2(63.99994, 0)
+scale = Vector2(4.000001, 0.25)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room5/Spike4" index="1"]
+position = Vector2(64, 8)
+shape = SubResource("RectangleShape2D_gvn65")
+
+[node name="Room6" parent="." unique_id=949789789 instance=ExtResource("4_ys1qc")]
+position = Vector2(3392, -252)
+
+[node name="Checkpoint" parent="Room6" index="1"]
+position = Vector2(-288, -108)
+
+[node name="Platform" parent="Room6" unique_id=795885795 instance=ExtResource("3_qc4db")]
+position = Vector2(-208, -28)
+
+[node name="CollisionShape2D" parent="Room6/Platform" index="0"]
+position = Vector2(-8, 24)
+shape = SubResource("RectangleShape2D_3tq4f")
+
+[node name="Sprite2D" parent="Room6/Platform" index="1"]
+position = Vector2(-7.9999695, 24.000008)
+scale = Vector2(0.12500048, 1.3750001)
+
+[node name="Platform2" parent="Room6" unique_id=1103996150 instance=ExtResource("3_qc4db")]
+position = Vector2(-80, -28)
+
+[node name="CollisionShape2D" parent="Room6/Platform2" index="0"]
+position = Vector2(-8, 24)
+shape = SubResource("RectangleShape2D_3tq4f")
+
+[node name="Sprite2D" parent="Room6/Platform2" index="1"]
+position = Vector2(-7.9999695, 24.000008)
+scale = Vector2(0.12500048, 1.3750001)
+
+[node name="Platform3" parent="Room6" unique_id=630063978 instance=ExtResource("3_qc4db")]
+position = Vector2(-224, 100)
+
+[node name="CollisionShape2D" parent="Room6/Platform3" index="0"]
+position = Vector2(-8, 8)
+shape = SubResource("RectangleShape2D_ud6rk")
+
+[node name="Sprite2D" parent="Room6/Platform3" index="1"]
+position = Vector2(-7.9999695, 8.000008)
+scale = Vector2(0.12500048, 0.6250001)
+
+[node name="Platform4" parent="Room6" unique_id=2011840688 instance=ExtResource("3_qc4db")]
+position = Vector2(-160, 148)
+
+[node name="CollisionShape2D" parent="Room6/Platform4" index="0"]
+position = Vector2(32, 8)
+shape = SubResource("RectangleShape2D_epukl")
+
+[node name="Sprite2D" parent="Room6/Platform4" index="1"]
+position = Vector2(32, 8)
+scale = Vector2(1.5, 0.125)
+
+[node name="Clock" parent="Room6" unique_id=1920634514 instance=ExtResource("10_iaow0")]
+position = Vector2(-144, 100)
+
+[node name="Water" parent="Room6" unique_id=971087256 instance=ExtResource("12_yb21e")]
+position = Vector2(-160, 132)
+
+[node name="CollisionShape2D" parent="Room6/Water" index="0"]
+position = Vector2(32, 8)
+shape = SubResource("RectangleShape2D_bg5m0")
+
+[node name="Spike" parent="Room6" unique_id=1938116089 instance=ExtResource("5_i3aeo")]
+position = Vector2(-208, 4)
+
+[node name="Sprite2D" parent="Room6/Spike" index="0"]
+position = Vector2(16, -8.000008)
+scale = Vector2(0.25, 1.3749999)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room6/Spike" index="1"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_17bvh")
+
+[node name="Spike2" parent="Room6" unique_id=1778513739 instance=ExtResource("5_i3aeo")]
+position = Vector2(-112, 4)
+
+[node name="Sprite2D" parent="Room6/Spike2" index="0"]
+position = Vector2(0, -8.000008)
+scale = Vector2(0.25, 1.3749999)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room6/Spike2" index="1"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_17bvh")
+
+[node name="Platform5" parent="Room6" unique_id=1992561530 instance=ExtResource("3_qc4db")]
+position = Vector2(32, 132)
+
+[node name="CollisionShape2D" parent="Room6/Platform5" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5ch40")
+
+[node name="Sprite2D" parent="Room6/Platform5" index="1"]
+position = Vector2(0, 8.000001)
+scale = Vector2(1, 0.375)
+
+[node name="Platform8" parent="Room6" unique_id=1391227761 instance=ExtResource("3_qc4db")]
+position = Vector2(192, -44)
+
+[node name="CollisionShape2D" parent="Room6/Platform8" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5ch40")
+
+[node name="Sprite2D" parent="Room6/Platform8" index="1"]
+position = Vector2(0, 8.000001)
+scale = Vector2(1, 0.375)
+
+[node name="Platform9" parent="Room6" unique_id=273267743 instance=ExtResource("3_qc4db")]
+position = Vector2(288, 4)
+
+[node name="CollisionShape2D" parent="Room6/Platform9" index="0"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_gjvbe")
+
+[node name="Sprite2D" parent="Room6/Platform9" index="1"]
+position = Vector2(8, 8.000001)
+scale = Vector2(1.125, 0.375)
+
+[node name="Platform6" parent="Room6" unique_id=1231597692 instance=ExtResource("3_qc4db")]
+position = Vector2(-64, 52)
+
+[node name="CollisionShape2D" parent="Room6/Platform6" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_hqbdk")
+
+[node name="Sprite2D" parent="Room6/Platform6" index="1"]
+position = Vector2(6.1035156e-05, 7.999998)
+scale = Vector2(0.25000095, 0.12500003)
+
+[node name="Platform7" parent="Room6" unique_id=1317037687 instance=ExtResource("3_qc4db")]
+position = Vector2(-80, -92)
+
+[node name="CollisionShape2D" parent="Room6/Platform7" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_hqbdk")
+
+[node name="Sprite2D" parent="Room6/Platform7" index="1"]
+position = Vector2(6.1035156e-05, 7.999998)
+scale = Vector2(0.25000095, 0.12500003)
+
+[node name="Moving Platform" parent="Room6" unique_id=1004918871 instance=ExtResource("17_2ocox")]
+position = Vector2(16, 4)
+curve = SubResource("Curve2D_mgie7")
+
+[node name="PathFollow2D" parent="Room6/Moving Platform" index="0" unique_id=530363166]
+position = Vector2(0, 0)
+rotation = 0.0
+
+[node name="AnimatableBody2D" parent="Room6/Moving Platform" index="1" unique_id=944955649]
+position = Vector2(0, 0)
+rotation = 0.0
+
+[node name="Sprite2D" parent="Room6/Moving Platform/AnimatableBody2D" index="0" unique_id=246275394]
+position = Vector2(6.1035156e-05, 5.722046e-06)
+scale = Vector2(0.50000095, 0.24999991)
+
+[node name="CollisionShape2D" parent="Room6/Moving Platform/AnimatableBody2D" index="1" unique_id=270251958]
+shape = SubResource("RectangleShape2D_iykje")
+
+[node name="Falling Platform" parent="Room6" unique_id=1739253831 instance=ExtResource("13_aees8")]
+position = Vector2(160, -156)
+
+[node name="Sprite2D" parent="Room6/Falling Platform" index="0"]
+position = Vector2(-9.1552734e-05, 7.6293945e-06)
+scale = Vector2(0.24999857, 0.49999988)
+
+[node name="CollisionShape2D" parent="Room6/Falling Platform" index="1"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_mgie7")
+
+[node name="CollisionShape2D" parent="Room6/Falling Platform/Trigger" index="0"]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_duwi1")
+
+[node name="CollisionShape2D" parent="Room6/Falling Platform/Hitbox" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_avh4v")
+
+[node name="One Way Platform" parent="Room6" unique_id=1957997608 instance=ExtResource("12_mie3u")]
+position = Vector2(320, -92)
+
+[node name="CollisionShape2D" parent="Room6/One Way Platform" index="0" unique_id=976274013]
+position = Vector2(-3.2014214e-09, -24)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_yn8tc")
+
+[node name="Spike4" parent="Room6" unique_id=1523015767 instance=ExtResource("5_i3aeo")]
+position = Vector2(0, 180)
+
+[node name="Sprite2D" parent="Room6/Spike4" index="0"]
+scale = Vector2(5, 0.25)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room6/Spike4" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_0c07c")
+
+[node name="Room7" parent="." unique_id=1591346346 instance=ExtResource("4_ys1qc")]
+position = Vector2(4032, -220)
+
+[node name="Checkpoint" parent="Room7" index="1"]
+position = Vector2(-288, -64)
+
+[node name="Platform10" parent="Room7" unique_id=1966573949 instance=ExtResource("3_qc4db")]
+position = Vector2(-128, -60)
+
+[node name="CollisionShape2D" parent="Room7/Platform10" index="0"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_0014c")
+
+[node name="Sprite2D" parent="Room7/Platform10" index="1"]
+position = Vector2(-16, 5.722046e-06)
+scale = Vector2(0.75, 0.24999991)
+
+[node name="Falling Platform" parent="Room7" unique_id=527110527 instance=ExtResource("13_aees8")]
+position = Vector2(-128, -188)
+
+[node name="Sprite2D" parent="Room7/Falling Platform" index="0"]
+position = Vector2(0.00012207031, 7.6293945e-06)
+scale = Vector2(0.4999981, 0.49999988)
+
+[node name="CollisionShape2D" parent="Room7/Falling Platform" index="1"]
+shape = SubResource("RectangleShape2D_xyxnv")
+
+[node name="CollisionShape2D" parent="Room7/Falling Platform/Trigger" index="0"]
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_ysmh5")
+
+[node name="CollisionShape2D" parent="Room7/Falling Platform/Hitbox" index="0"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_e3rva")
+
+[node name="Moving Platform" parent="Room7" unique_id=1131805681 instance=ExtResource("17_2ocox")]
+position = Vector2(-48, -108)
+curve = SubResource("Curve2D_2ocox")
+
+[node name="PathFollow2D" parent="Room7/Moving Platform" index="0" unique_id=530363166]
+position = Vector2(0, 0)
+rotation = 1.5707964
+
+[node name="AnimatableBody2D" parent="Room7/Moving Platform" index="1" unique_id=944955649]
+position = Vector2(0, 0)
+rotation = 1.5707964
+
+[node name="Sprite2D" parent="Room7/Moving Platform/AnimatableBody2D" index="0" unique_id=246275394]
+position = Vector2(0.028652996, 1.1593103e-05)
+scale = Vector2(0.24940202, 0.24985124)
+
+[node name="CollisionShape2D" parent="Room7/Moving Platform/AnimatableBody2D" index="1" unique_id=270251958]
+shape = SubResource("RectangleShape2D_cq6ew")
+
+[node name="Platform" parent="Room7" unique_id=1279709549 instance=ExtResource("3_qc4db")]
+position = Vector2(-144, 100)
+
+[node name="CollisionShape2D" parent="Room7/Platform" index="0"]
+shape = SubResource("RectangleShape2D_fosxv")
+
+[node name="Sprite2D" parent="Room7/Platform" index="1"]
+position = Vector2(-8.1539154e-05, 5.722046e-06)
+scale = Vector2(0.49999776, 0.24999991)
+
+[node name="Platform2" parent="Room7" unique_id=216042734 instance=ExtResource("3_qc4db")]
+position = Vector2(-16, 116)
+
+[node name="CollisionShape2D" parent="Room7/Platform2" index="0"]
+shape = SubResource("RectangleShape2D_fosxv")
+
+[node name="Sprite2D" parent="Room7/Platform2" index="1"]
+position = Vector2(-8.1539154e-05, 5.722046e-06)
+scale = Vector2(0.49999776, 0.24999991)
+
+[node name="Spinning Ball" parent="Room7" unique_id=1948148251 instance=ExtResource("16_7nf3m")]
+position = Vector2(-144, 100)
+startingAngle = 89.99999999999712
+
+[node name="Spinning Ball2" parent="Room7" unique_id=1720115009 instance=ExtResource("16_7nf3m")]
+position = Vector2(-144, 100)
+startingAngle = -89.99999999999712
+
+[node name="Spinning Ball3" parent="Room7" unique_id=1311018232 instance=ExtResource("16_7nf3m")]
+position = Vector2(-16, 116)
+dir = -0.999999999999968
+
+[node name="Spinning Ball4" parent="Room7" unique_id=49424960 instance=ExtResource("16_7nf3m")]
+position = Vector2(-16, 116)
+dir = -0.999999999999968
+startingAngle = 179.99999999999423
+
+[node name="Platform3" parent="Room7" unique_id=1702435932 instance=ExtResource("3_qc4db")]
+position = Vector2(-224, 84)
+
+[node name="CollisionShape2D" parent="Room7/Platform3" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_nr60i")
+
+[node name="Sprite2D" parent="Room7/Platform3" index="1"]
+position = Vector2(9.1552734e-05, 8)
+scale = Vector2(0.24999857, 0.375)
+
+[node name="Platform4" parent="Room7" unique_id=1091446355 instance=ExtResource("3_qc4db")]
+position = Vector2(80, -44)
+
+[node name="CollisionShape2D" parent="Room7/Platform4" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_2cmsv")
+
+[node name="Sprite2D" parent="Room7/Platform4" index="1"]
+position = Vector2(0, -7.999998)
+scale = Vector2(1, 0.12500003)
+
+[node name="Platform7" parent="Room7" unique_id=963029691 instance=ExtResource("3_qc4db")]
+position = Vector2(112, 100)
+
+[node name="CollisionShape2D" parent="Room7/Platform7" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_2cmsv")
+
+[node name="Sprite2D" parent="Room7/Platform7" index="1"]
+position = Vector2(0, -7.999998)
+scale = Vector2(1, 0.12500003)
+
+[node name="Platform5" parent="Room7" unique_id=474717739 instance=ExtResource("3_qc4db")]
+position = Vector2(0, -60)
+
+[node name="CollisionShape2D" parent="Room7/Platform5" index="0"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_afdc1")
+
+[node name="Sprite2D" parent="Room7/Platform5" index="1"]
+position = Vector2(7.9999695, 5.722046e-06)
+scale = Vector2(0.12500048, 0.24999991)
+
+[node name="Platform6" parent="Room7" unique_id=1591510747 instance=ExtResource("3_qc4db")]
+position = Vector2(144, -60)
+
+[node name="CollisionShape2D" parent="Room7/Platform6" index="0"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_afdc1")
+
+[node name="Sprite2D" parent="Room7/Platform6" index="1"]
+position = Vector2(7.9999695, 5.722046e-06)
+scale = Vector2(0.12500048, 0.24999991)
+
+[node name="Water" parent="Room7" unique_id=352602803 instance=ExtResource("12_yb21e")]
+position = Vector2(80, -76)
+
+[node name="CollisionShape2D" parent="Room7/Water" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_mt1xq")
+
+[node name="Clock" parent="Room7" unique_id=414627691 instance=ExtResource("10_iaow0")]
+position = Vector2(-144, 68)
+
+[node name="Spike" parent="Room7" unique_id=1258532613 instance=ExtResource("5_i3aeo")]
+position = Vector2(112, 68)
+
+[node name="Sprite2D" parent="Room7/Spike" index="0"]
+position = Vector2(9.1552734e-05, -3.8146973e-06)
+scale = Vector2(0.24999857, 0.25000006)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room7/Spike" index="1"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_4ba60")
+
+[node name="Platform8" parent="Room7" unique_id=859631460 instance=ExtResource("3_qc4db")]
+position = Vector2(224, 100)
+
+[node name="CollisionShape2D" parent="Room7/Platform8" index="0"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_ys1qc")
+
+[node name="Sprite2D" parent="Room7/Platform8" index="1"]
+position = Vector2(32, 32)
+scale = Vector2(1, 0.75)
+
+[node name="Spike4" parent="Room7" unique_id=1295937675 instance=ExtResource("5_i3aeo")]
+position = Vector2(0, 164)
+
+[node name="Sprite2D" parent="Room7/Spike4" index="0"]
+scale = Vector2(5, 0.25)
+texture = ExtResource("6_5wyu1")
+
+[node name="CollisionShape2D" parent="Room7/Spike4" index="1"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0c07c")
 
@@ -434,6 +1336,7 @@ shape = SubResource("RectangleShape2D_0c07c")
 [editable path="Room2/Platform8"]
 [editable path="Room2/Platform9"]
 [editable path="Room2/Platform10"]
+[editable path="Room2/One Way Platform"]
 [editable path="Room3"]
 [editable path="Room3/Platform12"]
 [editable path="Room3/Platform"]
@@ -442,4 +1345,70 @@ shape = SubResource("RectangleShape2D_0c07c")
 [editable path="Room3/Water"]
 [editable path="Room3/Platform4"]
 [editable path="Room3/Falling Platform"]
+[editable path="Room3/Platform5"]
 [editable path="Room3/Spike3"]
+[editable path="Room3/Platform6"]
+[editable path="Room3/One Way Platform"]
+[editable path="Room4"]
+[editable path="Room4/One Way Platform"]
+[editable path="Room4/Boost Area"]
+[editable path="Room4/Boost Area2"]
+[editable path="Room4/Platform"]
+[editable path="Room4/Platform2"]
+[editable path="Room4/Spike"]
+[editable path="Room4/Platform3"]
+[editable path="Room4/Platform12"]
+[editable path="Room4/Platform4"]
+[editable path="Room4/Platform11"]
+[editable path="Room4/Platform5"]
+[editable path="Room4/Platform13"]
+[editable path="Room4/Platform6"]
+[editable path="Room4/Spike4"]
+[editable path="Room4/Platform7"]
+[editable path="Room4/Boost Area3"]
+[editable path="Room4/One Way Platform2"]
+[editable path="Room4/Boost Area4"]
+[editable path="Room4/Boost Area5"]
+[editable path="Room5"]
+[editable path="Room5/Platform"]
+[editable path="Room5/Platform2"]
+[editable path="Room5/Platform5"]
+[editable path="Room5/Platform6"]
+[editable path="Room5/Platform3"]
+[editable path="Room5/Boost Area"]
+[editable path="Room5/Platform4"]
+[editable path="Room5/Spike"]
+[editable path="Room5/One Way Platform"]
+[editable path="Room5/Spike4"]
+[editable path="Room6"]
+[editable path="Room6/Platform"]
+[editable path="Room6/Platform2"]
+[editable path="Room6/Platform3"]
+[editable path="Room6/Platform4"]
+[editable path="Room6/Water"]
+[editable path="Room6/Spike"]
+[editable path="Room6/Spike2"]
+[editable path="Room6/Platform5"]
+[editable path="Room6/Platform8"]
+[editable path="Room6/Platform9"]
+[editable path="Room6/Platform6"]
+[editable path="Room6/Platform7"]
+[editable path="Room6/Moving Platform"]
+[editable path="Room6/Falling Platform"]
+[editable path="Room6/One Way Platform"]
+[editable path="Room6/Spike4"]
+[editable path="Room7"]
+[editable path="Room7/Platform10"]
+[editable path="Room7/Falling Platform"]
+[editable path="Room7/Moving Platform"]
+[editable path="Room7/Platform"]
+[editable path="Room7/Platform2"]
+[editable path="Room7/Platform3"]
+[editable path="Room7/Platform4"]
+[editable path="Room7/Platform7"]
+[editable path="Room7/Platform5"]
+[editable path="Room7/Platform6"]
+[editable path="Room7/Water"]
+[editable path="Room7/Spike"]
+[editable path="Room7/Platform8"]
+[editable path="Room7/Spike4"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dnv8gql1s7srd"]
+
+[ext_resource type="Texture2D" uid="uid://bt7v33na7yjfv" path="res://Sprites/Ball.png" id="1_35wgq"]
+[ext_resource type="Script" uid="uid://cnbegslxu1wbo" path="res://Scripts/spinning_ball.gd" id="1_ykrbk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykrbk"]
+radius = 8.0
+
+[node name="Spinning Ball" type="Node2D" unique_id=719459731]
+script = ExtResource("1_ykrbk")
+colour1 = Color(0.2627451, 0.23529412, 0.29411766, 1)
+colour2 = Color(0.047058824, 0.011764706, 0.03529412, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=739476550]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1999298236]
+texture_filter = 1
+texture = ExtResource("1_35wgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1581131620]
+shape = SubResource("CircleShape2D_ykrbk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

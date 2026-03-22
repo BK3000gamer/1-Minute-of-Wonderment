@@ -12,6 +12,8 @@ class_name Emu
 @export var jumpBufferTime: float
 @export var coyoteTime: float
 
+@onready var recordJumpHeight := jumpHeight
+
 var InputDir: float = 0.0
 var Speed: float
 var Momentum: float
@@ -113,8 +115,10 @@ func _change_state(NewState: States) -> void:
 	CurrentState = NewState
 	match CurrentState:
 		States.Idle:
+			jumpHeight = recordJumpHeight
 			velocity = Vector2.ZERO
 		States.Run:
+			jumpHeight = recordJumpHeight
 			Speed = baseSpeed
 		States.Jump:
 			velocity.y = jumpVelocity
@@ -124,4 +128,5 @@ func _change_state(NewState: States) -> void:
 
 func _respawn() -> void:
 	global_position = checkpoint
+	_change_state(States.Idle)
 	respawn.emit()

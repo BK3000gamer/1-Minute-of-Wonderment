@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c1tehxf2qdyhg"]
+
+[ext_resource type="Script" uid="uid://bsierjivng8ya" path="res://Scripts/boost_area.gd" id="1_6usab"]
+
+[node name="Boost Area" type="Area2D" unique_id=145079859]
+script = ExtResource("1_6usab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=661886455]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
