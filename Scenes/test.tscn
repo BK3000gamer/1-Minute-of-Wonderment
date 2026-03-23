@@ -8,85 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cr4s35bk2t2ea" path="res://Scenes/platform.tscn" id="3_qc4db"]
 [ext_resource type="PackedScene" uid="uid://bmaseovuaexvq" path="res://Scenes/room.tscn" id="4_ys1qc"]
 [ext_resource type="PackedScene" uid="uid://br58bq2w5rfyp" path="res://Scenes/spike.tscn" id="5_i3aeo"]
-[ext_resource type="Texture2D" uid="uid://bb07ns4knm822" path="res://Sprites/Idle/idle01.png" id="6_3nkef"]
 [ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="6_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://bnupcupo4t06u" path="res://Scenes/breaking_platform.tscn" id="7_5wyu1"]
-[ext_resource type="Texture2D" uid="uid://d1f75h2ajhi16" path="res://Sprites/Idle/idle02.png" id="7_vpf1r"]
-[ext_resource type="Texture2D" uid="uid://d2dlotwnycyeu" path="res://Sprites/Run/run03.png" id="8_m64o6"]
-[ext_resource type="Texture2D" uid="uid://c1xf0vsp4lkvy" path="res://Sprites/Run/run04.png" id="9_55gk5"]
-[ext_resource type="Texture2D" uid="uid://d27db32ljlqte" path="res://Sprites/Run/run05.png" id="10_dnpbo"]
 [ext_resource type="PackedScene" uid="uid://c0okii45uhn2y" path="res://Scenes/clock.tscn" id="10_iaow0"]
-[ext_resource type="Texture2D" uid="uid://vth31is6ad3t" path="res://Sprites/Run/run06.png" id="11_pkh07"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run01.png" id="12_2jg6l"]
 [ext_resource type="PackedScene" uid="uid://bk5j5n3ioxs03" path="res://Scenes/water.tscn" id="12_yb21e"]
 [ext_resource type="PackedScene" uid="uid://brmmgi5qnoluf" path="res://Scenes/falling_platform.tscn" id="13_aees8"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run02.png" id="13_nlfrn"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run03.png" id="14_j44qy"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run04.png" id="15_ipur1"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run05.png" id="16_4fddv"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run06.png" id="17_wqbs1"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run07.png" id="18_051wo"]
-[ext_resource type="Texture2D" path="res://New folder/Run/run08.png" id="19_yn8tc"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_66mtb"]
-animations = [{
-"frames": [{
-"duration": 2.0,
-"texture": ExtResource("6_3nkef")
-}, {
-"duration": 2.0,
-"texture": ExtResource("7_vpf1r")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 2.0,
-"texture": ExtResource("8_m64o6")
-}, {
-"duration": 2.0,
-"texture": ExtResource("9_55gk5")
-}, {
-"duration": 2.0,
-"texture": ExtResource("10_dnpbo")
-}, {
-"duration": 2.0,
-"texture": ExtResource("11_pkh07")
-}],
-"loop": true,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 2.0,
-"texture": ExtResource("12_2jg6l")
-}, {
-"duration": 2.0,
-"texture": ExtResource("13_nlfrn")
-}, {
-"duration": 2.0,
-"texture": ExtResource("14_j44qy")
-}, {
-"duration": 2.0,
-"texture": ExtResource("15_ipur1")
-}, {
-"duration": 2.0,
-"texture": ExtResource("16_4fddv")
-}, {
-"duration": 2.0,
-"texture": ExtResource("17_wqbs1")
-}, {
-"duration": 2.0,
-"texture": ExtResource("18_051wo")
-}, {
-"duration": 2.0,
-"texture": ExtResource("19_yn8tc")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys1qc"]
 size = Vector2(128, 96)
@@ -182,11 +108,6 @@ jumpTimeToPeak = 0.2999999999999904
 jumpTimeToDecent = 0.249999999999992
 jumpBufferTime = 0.0499999999999984
 coyoteTime = 0.0499999999999984
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Emu" unique_id=671707036]
-sprite_frames = SubResource("SpriteFrames_66mtb")
-animation = &"Jump"
-autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=220252160]
 position = Vector2(320, 180)
