@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dh5xoefewfoel"]
+[gd_scene format=3 uid="uid://dh5xoefewfoel"]
 
 [ext_resource type="PackedScene" uid="uid://s13ukyw6wp8c" path="res://UI/timer.tscn" id="1_0c07c"]
 [ext_resource type="Script" uid="uid://cvdjsbi0b1ag5" path="res://Scripts/reset.gd" id="1_qpfo2"]
@@ -8,11 +8,85 @@
 [ext_resource type="PackedScene" uid="uid://cr4s35bk2t2ea" path="res://Scenes/platform.tscn" id="3_qc4db"]
 [ext_resource type="PackedScene" uid="uid://bmaseovuaexvq" path="res://Scenes/room.tscn" id="4_ys1qc"]
 [ext_resource type="PackedScene" uid="uid://br58bq2w5rfyp" path="res://Scenes/spike.tscn" id="5_i3aeo"]
+[ext_resource type="Texture2D" uid="uid://bb07ns4knm822" path="res://Sprites/Idle/idle01.png" id="6_3nkef"]
 [ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="6_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://bnupcupo4t06u" path="res://Scenes/breaking_platform.tscn" id="7_5wyu1"]
+[ext_resource type="Texture2D" uid="uid://d1f75h2ajhi16" path="res://Sprites/Idle/idle02.png" id="7_vpf1r"]
+[ext_resource type="Texture2D" uid="uid://d2dlotwnycyeu" path="res://Sprites/Run/run03.png" id="8_m64o6"]
+[ext_resource type="Texture2D" uid="uid://c1xf0vsp4lkvy" path="res://Sprites/Run/run04.png" id="9_55gk5"]
+[ext_resource type="Texture2D" uid="uid://d27db32ljlqte" path="res://Sprites/Run/run05.png" id="10_dnpbo"]
 [ext_resource type="PackedScene" uid="uid://c0okii45uhn2y" path="res://Scenes/clock.tscn" id="10_iaow0"]
+[ext_resource type="Texture2D" uid="uid://vth31is6ad3t" path="res://Sprites/Run/run06.png" id="11_pkh07"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run01.png" id="12_2jg6l"]
 [ext_resource type="PackedScene" uid="uid://bk5j5n3ioxs03" path="res://Scenes/water.tscn" id="12_yb21e"]
 [ext_resource type="PackedScene" uid="uid://brmmgi5qnoluf" path="res://Scenes/falling_platform.tscn" id="13_aees8"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run02.png" id="13_nlfrn"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run03.png" id="14_j44qy"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run04.png" id="15_ipur1"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run05.png" id="16_4fddv"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run06.png" id="17_wqbs1"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run07.png" id="18_051wo"]
+[ext_resource type="Texture2D" path="res://New folder/Run/run08.png" id="19_yn8tc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66mtb"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("6_3nkef")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_vpf1r")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("8_m64o6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_55gk5")
+}, {
+"duration": 2.0,
+"texture": ExtResource("10_dnpbo")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_pkh07")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("12_2jg6l")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_nlfrn")
+}, {
+"duration": 2.0,
+"texture": ExtResource("14_j44qy")
+}, {
+"duration": 2.0,
+"texture": ExtResource("15_ipur1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("16_4fddv")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_wqbs1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("18_051wo")
+}, {
+"duration": 2.0,
+"texture": ExtResource("19_yn8tc")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys1qc"]
 size = Vector2(128, 96)
@@ -80,24 +154,24 @@ size = Vector2(128, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgu05"]
 size = Vector2(128, 16)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=1091296031]
 process_mode = 1
 
-[node name="Reset" type="Node" parent="."]
+[node name="Reset" type="Node" parent="." unique_id=238574999]
 process_mode = 3
 script = ExtResource("1_qpfo2")
 
-[node name="Timer" parent="." instance=ExtResource("1_0c07c")]
+[node name="Timer" parent="." unique_id=2113019125 instance=ExtResource("1_0c07c")]
 
-[node name="Start" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_2cgwh")]
+[node name="Start" parent="." unique_id=138381659 node_paths=PackedStringArray("timer") instance=ExtResource("2_2cgwh")]
 position = Vector2(64, 180)
 timer = NodePath("../Timer")
 
-[node name="End" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("3_2cgwh")]
+[node name="End" parent="." unique_id=428874656 node_paths=PackedStringArray("timer") instance=ExtResource("3_2cgwh")]
 position = Vector2(1856, 216)
 timer = NodePath("../Timer")
 
-[node name="Emu" parent="." instance=ExtResource("2_8od7v")]
+[node name="Emu" parent="." unique_id=1325565440 instance=ExtResource("2_8od7v")]
 position = Vector2(32, 248)
 baseSpeed = 149.9999999999952
 maxSpeed = 299.9999999999904
@@ -109,16 +183,21 @@ jumpTimeToDecent = 0.249999999999992
 jumpBufferTime = 0.0499999999999984
 coyoteTime = 0.0499999999999984
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Emu" unique_id=671707036]
+sprite_frames = SubResource("SpriteFrames_66mtb")
+animation = &"Jump"
+autoplay = "Idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=220252160]
 position = Vector2(320, 180)
 
-[node name="Room" parent="." instance=ExtResource("4_ys1qc")]
+[node name="Room" parent="." unique_id=1176017667 instance=ExtResource("4_ys1qc")]
 position = Vector2(320, 180)
 
 [node name="Checkpoint" parent="Room" index="1"]
 position = Vector2(-288, 68)
 
-[node name="Platform" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform" parent="Room" unique_id=613287866 instance=ExtResource("3_qc4db")]
 position = Vector2(-288, 100)
 
 [node name="CollisionShape2D" parent="Room/Platform" index="0"]
@@ -129,7 +208,7 @@ shape = SubResource("RectangleShape2D_ys1qc")
 position = Vector2(32, 32)
 scale = Vector2(1, 0.75)
 
-[node name="Spike" parent="Room" instance=ExtResource("5_i3aeo")]
+[node name="Spike" parent="Room" unique_id=1668844643 instance=ExtResource("5_i3aeo")]
 position = Vector2(0, 164)
 
 [node name="Sprite2D" parent="Room/Spike" index="0"]
@@ -140,7 +219,7 @@ texture = ExtResource("6_5wyu1")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0c07c")
 
-[node name="Platform2" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform2" parent="Room" unique_id=1891835635 instance=ExtResource("3_qc4db")]
 position = Vector2(-80, 116)
 
 [node name="CollisionShape2D" parent="Room/Platform2" index="0"]
@@ -150,7 +229,7 @@ shape = SubResource("RectangleShape2D_i3aeo")
 position = Vector2(2.3841858e-06, 0)
 scale = Vector2(0.49999985, 1)
 
-[node name="Platform3" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform3" parent="Room" unique_id=933766970 instance=ExtResource("3_qc4db")]
 position = Vector2(-96, 36)
 
 [node name="CollisionShape2D" parent="Room/Platform3" index="0"]
@@ -161,7 +240,7 @@ shape = SubResource("RectangleShape2D_5wyu1")
 position = Vector2(8, -1.9073486e-06)
 scale = Vector2(0.875, 0.25000003)
 
-[node name="Platform4" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform4" parent="Room" unique_id=1944334318 instance=ExtResource("3_qc4db")]
 position = Vector2(128, 148)
 
 [node name="CollisionShape2D" parent="Room/Platform4" index="0"]
@@ -171,7 +250,7 @@ shape = SubResource("RectangleShape2D_2cgwh")
 position = Vector2(1.335144e-05, 4.7683716e-06)
 scale = Vector2(1.4999998, 0.49999997)
 
-[node name="Spike2" parent="Room" instance=ExtResource("5_i3aeo")]
+[node name="Spike2" parent="Room" unique_id=1807390505 instance=ExtResource("5_i3aeo")]
 position = Vector2(112, 100)
 
 [node name="Sprite2D" parent="Room/Spike2" index="0"]
@@ -183,7 +262,7 @@ texture = ExtResource("6_5wyu1")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_iaow0")
 
-[node name="Platform5" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform5" parent="Room" unique_id=836076532 instance=ExtResource("3_qc4db")]
 position = Vector2(288, 116)
 
 [node name="CollisionShape2D" parent="Room/Platform5" index="0"]
@@ -194,10 +273,10 @@ shape = SubResource("RectangleShape2D_qpfo2")
 position = Vector2(16.000017, 64)
 scale = Vector2(1.2500004, 2)
 
-[node name="Breaking Platform" parent="Room" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform" parent="Room" unique_id=2099463992 instance=ExtResource("7_5wyu1")]
 position = Vector2(80, -44)
 
-[node name="Platform6" parent="Room" instance=ExtResource("3_qc4db")]
+[node name="Platform6" parent="Room" unique_id=538855696 instance=ExtResource("3_qc4db")]
 position = Vector2(240, -92)
 
 [node name="CollisionShape2D" parent="Room/Platform6" index="0"]
@@ -207,17 +286,17 @@ shape = SubResource("RectangleShape2D_yb21e")
 position = Vector2(1.21593475e-05, -1.9073486e-06)
 scale = Vector2(0.49999985, 0.25000003)
 
-[node name="Clock" parent="Room" node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
+[node name="Clock" parent="Room" unique_id=626067929 node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
 position = Vector2(240, -124)
 timer = NodePath("../../Timer")
 
-[node name="Room2" parent="." instance=ExtResource("4_ys1qc")]
+[node name="Room2" parent="." unique_id=629103735 instance=ExtResource("4_ys1qc")]
 position = Vector2(960, 308)
 
 [node name="Checkpoint" parent="Room2" index="1"]
 position = Vector2(-288, -92)
 
-[node name="Spike3" parent="Room2" instance=ExtResource("5_i3aeo")]
+[node name="Spike3" parent="Room2" unique_id=2074726984 instance=ExtResource("5_i3aeo")]
 position = Vector2(0, 164)
 
 [node name="Sprite2D" parent="Room2/Spike3" index="0"]
@@ -228,49 +307,49 @@ texture = ExtResource("6_5wyu1")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0c07c")
 
-[node name="Breaking Platform2" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform2" parent="Room2" unique_id=926485739 instance=ExtResource("7_5wyu1")]
 position = Vector2(-240, -76)
 
-[node name="Breaking Platform3" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform3" parent="Room2" unique_id=448858736 instance=ExtResource("7_5wyu1")]
 position = Vector2(-208, -76)
 
-[node name="Breaking Platform4" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform4" parent="Room2" unique_id=1309711483 instance=ExtResource("7_5wyu1")]
 position = Vector2(-176, -76)
 
-[node name="Breaking Platform5" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform5" parent="Room2" unique_id=433196377 instance=ExtResource("7_5wyu1")]
 position = Vector2(-144, -76)
 
-[node name="Breaking Platform6" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform6" parent="Room2" unique_id=1067863869 instance=ExtResource("7_5wyu1")]
 position = Vector2(-112, -76)
 
-[node name="Breaking Platform7" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform7" parent="Room2" unique_id=1984637169 instance=ExtResource("7_5wyu1")]
 position = Vector2(-80, -76)
 
-[node name="Breaking Platform8" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform8" parent="Room2" unique_id=2043310032 instance=ExtResource("7_5wyu1")]
 position = Vector2(-48, -76)
 
-[node name="Breaking Platform9" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform9" parent="Room2" unique_id=1565359990 instance=ExtResource("7_5wyu1")]
 position = Vector2(-16, -76)
 
-[node name="Breaking Platform10" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform10" parent="Room2" unique_id=1004125488 instance=ExtResource("7_5wyu1")]
 position = Vector2(16, -76)
 
-[node name="Breaking Platform11" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform11" parent="Room2" unique_id=1021984752 instance=ExtResource("7_5wyu1")]
 position = Vector2(48, -76)
 
-[node name="Breaking Platform12" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform12" parent="Room2" unique_id=1697544496 instance=ExtResource("7_5wyu1")]
 position = Vector2(80, -76)
 
-[node name="Breaking Platform13" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform13" parent="Room2" unique_id=309970717 instance=ExtResource("7_5wyu1")]
 position = Vector2(112, -76)
 
-[node name="Breaking Platform14" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform14" parent="Room2" unique_id=137263413 instance=ExtResource("7_5wyu1")]
 position = Vector2(144, -76)
 
-[node name="Breaking Platform15" parent="Room2" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform15" parent="Room2" unique_id=1682929538 instance=ExtResource("7_5wyu1")]
 position = Vector2(176, -76)
 
-[node name="Platform11" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform11" parent="Room2" unique_id=1450136825 instance=ExtResource("3_qc4db")]
 position = Vector2(288, 100)
 
 [node name="CollisionShape2D" parent="Room2/Platform11" index="0"]
@@ -281,7 +360,7 @@ shape = SubResource("RectangleShape2D_2ocox")
 position = Vector2(-32, 8.000012)
 scale = Vector2(1, 0.625)
 
-[node name="Platform7" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform7" parent="Room2" unique_id=2001810441 instance=ExtResource("3_qc4db")]
 position = Vector2(240, -60)
 
 [node name="CollisionShape2D" parent="Room2/Platform7" index="0"]
@@ -292,7 +371,7 @@ shape = SubResource("RectangleShape2D_aees8")
 position = Vector2(4.553795e-05, 7.9999943)
 scale = Vector2(0.7500001, 0.3750001)
 
-[node name="Platform8" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform8" parent="Room2" unique_id=260508359 instance=ExtResource("3_qc4db")]
 position = Vector2(-96, 84)
 
 [node name="CollisionShape2D" parent="Room2/Platform8" index="0"]
@@ -303,7 +382,7 @@ shape = SubResource("RectangleShape2D_mie3u")
 position = Vector2(2.2888184e-05, 24)
 scale = Vector2(0.25000036, 0.625)
 
-[node name="Platform9" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform9" parent="Room2" unique_id=427849179 instance=ExtResource("3_qc4db")]
 position = Vector2(32, 84)
 
 [node name="CollisionShape2D" parent="Room2/Platform9" index="0"]
@@ -313,7 +392,7 @@ shape = SubResource("RectangleShape2D_0qy5o")
 position = Vector2(-1.5258789e-05, 0)
 scale = Vector2(0.24999976, 1)
 
-[node name="Platform10" parent="Room2" instance=ExtResource("3_qc4db")]
+[node name="Platform10" parent="Room2" unique_id=919457847 instance=ExtResource("3_qc4db")]
 position = Vector2(128, 116)
 
 [node name="CollisionShape2D" parent="Room2/Platform10" index="0"]
@@ -324,17 +403,17 @@ shape = SubResource("RectangleShape2D_7nf3m")
 position = Vector2(-1.5258789e-05, 7.9999905)
 scale = Vector2(0.24999976, 0.37499985)
 
-[node name="Clock2" parent="Room2" node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
+[node name="Clock2" parent="Room2" unique_id=1417447041 node_paths=PackedStringArray("timer") instance=ExtResource("10_iaow0")]
 position = Vector2(-96, 52)
 timer = NodePath("../../Timer")
 
-[node name="Room3" parent="." instance=ExtResource("4_ys1qc")]
+[node name="Room3" parent="." unique_id=1284494420 instance=ExtResource("4_ys1qc")]
 position = Vector2(1600, 212)
 
 [node name="Checkpoint" parent="Room3" index="1"]
 position = Vector2(-288, 100)
 
-[node name="Platform12" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform12" parent="Room3" unique_id=1871476214 instance=ExtResource("3_qc4db")]
 position = Vector2(-272, 180)
 
 [node name="CollisionShape2D" parent="Room3/Platform12" index="0"]
@@ -344,7 +423,7 @@ shape = SubResource("RectangleShape2D_kuf18")
 position = Vector2(3.0517578e-05, 0)
 scale = Vector2(1.2499995, 1)
 
-[node name="Platform" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform" parent="Room3" unique_id=1152590972 instance=ExtResource("3_qc4db")]
 position = Vector2(-288, -92)
 
 [node name="CollisionShape2D" parent="Room3/Platform" index="0"]
@@ -355,7 +434,7 @@ shape = SubResource("RectangleShape2D_q8sys")
 position = Vector2(-8, 3.8146973e-06)
 scale = Vector2(0.125, 0.25000006)
 
-[node name="Platform2" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform2" parent="Room3" unique_id=259466640 instance=ExtResource("3_qc4db")]
 position = Vector2(-48, -92)
 
 [node name="CollisionShape2D" parent="Room3/Platform2" index="0"]
@@ -366,7 +445,7 @@ shape = SubResource("RectangleShape2D_n0wup")
 position = Vector2(8, -1.5258789e-05)
 scale = Vector2(0.125, 0.24999976)
 
-[node name="Platform3" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform3" parent="Room3" unique_id=1178255788 instance=ExtResource("3_qc4db")]
 position = Vector2(-160, -76)
 
 [node name="CollisionShape2D" parent="Room3/Platform3" index="0"]
@@ -377,23 +456,23 @@ shape = SubResource("RectangleShape2D_wojap")
 position = Vector2(-8.000038, -8.000008)
 scale = Vector2(1.8750004, 0.12499988)
 
-[node name="Water" parent="Room3" instance=ExtResource("12_yb21e")]
+[node name="Water" parent="Room3" unique_id=174166238 instance=ExtResource("12_yb21e")]
 position = Vector2(-160, -108)
 
 [node name="CollisionShape2D" parent="Room3/Water" index="0"]
 position = Vector2(-8, -16)
 shape = SubResource("RectangleShape2D_copon")
 
-[node name="Platform4" parent="Room3" instance=ExtResource("3_qc4db")]
+[node name="Platform4" parent="Room3" unique_id=1786588737 instance=ExtResource("3_qc4db")]
 position = Vector2(96, 116)
 
 [node name="CollisionShape2D" parent="Room3/Platform4" index="0"]
 shape = SubResource("RectangleShape2D_wjyqs")
 
-[node name="Breaking Platform" parent="Room3" instance=ExtResource("7_5wyu1")]
+[node name="Breaking Platform" parent="Room3" unique_id=2044793479 instance=ExtResource("7_5wyu1")]
 position = Vector2(-80, 68)
 
-[node name="Falling Platform" parent="Room3" instance=ExtResource("13_aees8")]
+[node name="Falling Platform" parent="Room3" unique_id=318772932 instance=ExtResource("13_aees8")]
 position = Vector2(96, -140)
 
 [node name="CollisionShape2D" parent="Room3/Falling Platform" index="1"]
@@ -407,7 +486,7 @@ shape = SubResource("RectangleShape2D_rhq6j")
 position = Vector2(0, 72)
 shape = SubResource("RectangleShape2D_pgu05")
 
-[node name="Spike3" parent="Room3" instance=ExtResource("5_i3aeo")]
+[node name="Spike3" parent="Room3" unique_id=423965778 instance=ExtResource("5_i3aeo")]
 position = Vector2(0, 164)
 
 [node name="Sprite2D" parent="Room3/Spike3" index="0"]
