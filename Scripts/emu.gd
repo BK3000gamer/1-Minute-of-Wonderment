@@ -12,6 +12,9 @@ class_name Emu
 @export var jumpBufferTime: float
 @export var coyoteTime: float
 
+@onready var recordJumpHeight := jumpHeight
+@onready var Sprite := $AnimatedSprite2D
+
 var InputDir: float = 0.0
 var Speed: float
 var Momentum: float
@@ -101,20 +104,22 @@ func _process(delta: float) -> void:
 	
 	match CurrentState:
 		States.Idle:
-			return
+			Sprite.play("Idle")
 		States.Run:
-			return
+			Sprite.play("Run")
 		States.Jump:
-			return
+			Sprite.play("Jump")
 		States.Fall:
-			return
+			Sprite.play("Jump")
 
 func _change_state(NewState: States) -> void:
 	CurrentState = NewState
 	match CurrentState:
 		States.Idle:
+			jumpHeight = recordJumpHeight
 			velocity = Vector2.ZERO
 		States.Run:
+			jumpHeight = recordJumpHeight
 			Speed = baseSpeed
 		States.Jump:
 			velocity.y = jumpVelocity
@@ -124,4 +129,5 @@ func _change_state(NewState: States) -> void:
 
 func _respawn() -> void:
 	global_position = checkpoint
+	_change_state(States.Idle)
 	respawn.emit()

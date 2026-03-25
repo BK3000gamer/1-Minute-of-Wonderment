@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0okii45uhn2y"]
+[gd_scene format=3 uid="uid://c0okii45uhn2y"]
 
 [ext_resource type="Script" uid="uid://cos50oglvglos" path="res://Scripts/clock.gd" id="1_pdqta"]
 [ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="1_s7hhp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdqta"]
 
-[node name="Clock" type="Area2D"]
+[node name="Clock" type="Area2D" unique_id=686088564]
 script = ExtResource("1_pdqta")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1298682021]
 shape = SubResource("RectangleShape2D_pdqta")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1986350620]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_s7hhp")
 

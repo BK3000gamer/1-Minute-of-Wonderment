@@ -5,4 +5,4 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Emu:
-		timer._end()
+		timer._end(false)
