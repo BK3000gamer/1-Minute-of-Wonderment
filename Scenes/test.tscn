@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmaseovuaexvq" path="res://Scenes/room.tscn" id="4_ys1qc"]
 [ext_resource type="PackedScene" uid="uid://br58bq2w5rfyp" path="res://Scenes/spike.tscn" id="5_i3aeo"]
 [ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="6_5wyu1"]
+[ext_resource type="Texture2D" uid="uid://dx6qbhqk5xs4u" path="res://Sprites/1MinuteofWonderment_Background.png" id="6_kuf18"]
 [ext_resource type="PackedScene" uid="uid://bnupcupo4t06u" path="res://Scenes/breaking_platform.tscn" id="7_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://c0okii45uhn2y" path="res://Scenes/clock.tscn" id="10_iaow0"]
 [ext_resource type="PackedScene" uid="uid://20eou45kfmfm" path="res://Scenes/one_way_platform.tscn" id="12_mie3u"]
@@ -16,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://brmmgi5qnoluf" path="res://Scenes/falling_platform.tscn" id="13_aees8"]
 [ext_resource type="PackedScene" uid="uid://c1tehxf2qdyhg" path="res://Scenes/boost_area.tscn" id="15_0qy5o"]
 [ext_resource type="PackedScene" uid="uid://dnv8gql1s7srd" path="res://Scenes/spinning_ball.tscn" id="16_7nf3m"]
-[ext_resource type="PackedScene" uid="uid://ibo8fxm4otsx" path="res://Scenes/moving_platform.tscn" id="17_2ocox"]
+[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="17_2ocox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys1qc"]
 size = Vector2(128, 96)
@@ -58,7 +59,7 @@ size = Vector2(32, 128)
 size = Vector2(32, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m64o6"]
-size = Vector2(96, 16)
+size = Vector2(112, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuf18"]
 size = Vector2(128, 128)
@@ -118,7 +119,7 @@ size = Vector2(32, 16)
 size = Vector2(96, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipur1"]
-size = Vector2(80, 16)
+size = Vector2(112, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fddv"]
 size = Vector2(240, 16)
@@ -231,9 +232,6 @@ size = Vector2(16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt1xq"]
 size = Vector2(128, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ba60"]
-size = Vector2(32, 16)
-
 [node name="Node2D" type="Node2D" unique_id=1346362531]
 process_mode = 1
 
@@ -264,7 +262,11 @@ jumpBufferTime = 0.0499999999999984
 coyoteTime = 0.0499999999999984
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1814358509]
-position = Vector2(320, 180)
+position = Vector2(640, 360)
+
+[node name="TextureRect" type="Sprite2D" parent="Camera2D" unique_id=1981961371]
+z_index = -5
+texture = ExtResource("6_kuf18")
 
 [node name="Room" parent="." unique_id=830652874 instance=ExtResource("4_ys1qc")]
 position = Vector2(320, 180)
@@ -733,8 +735,8 @@ position = Vector2(-8, -8)
 shape = SubResource("RectangleShape2D_ipur1")
 
 [node name="Sprite2D" parent="Room4/Platform5" index="1"]
-position = Vector2(-8.0001335, -8)
-scale = Vector2(0.6250012, 0.125)
+position = Vector2(-7.9999075, -8)
+scale = Vector2(0.874999, 0.125)
 
 [node name="Platform13" parent="Room4" unique_id=685327940 instance=ExtResource("3_qc4db")]
 position = Vector2(128, 100)
@@ -810,7 +812,7 @@ position = Vector2(-32, -28)
 shape = SubResource("RectangleShape2D_d83ya")
 
 [node name="Boost Area5" parent="Room4" unique_id=546645670 instance=ExtResource("15_0qy5o")]
-position = Vector2(-32, 84)
+position = Vector2(-16, 84)
 
 [node name="CollisionShape2D" parent="Room4/Boost Area5" index="0" unique_id=661886455]
 shape = SubResource("RectangleShape2D_d83ya")
@@ -1286,18 +1288,6 @@ shape = SubResource("RectangleShape2D_mt1xq")
 [node name="Clock" parent="Room7" unique_id=414627691 instance=ExtResource("10_iaow0")]
 position = Vector2(-144, 68)
 
-[node name="Spike" parent="Room7" unique_id=1258532613 instance=ExtResource("5_i3aeo")]
-position = Vector2(112, 68)
-
-[node name="Sprite2D" parent="Room7/Spike" index="0"]
-position = Vector2(9.1552734e-05, -3.8146973e-06)
-scale = Vector2(0.24999857, 0.25000006)
-texture = ExtResource("6_5wyu1")
-
-[node name="CollisionShape2D" parent="Room7/Spike" index="1"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_4ba60")
-
 [node name="Platform8" parent="Room7" unique_id=859631460 instance=ExtResource("3_qc4db")]
 position = Vector2(224, 100)
 
@@ -1409,6 +1399,5 @@ shape = SubResource("RectangleShape2D_0c07c")
 [editable path="Room7/Platform5"]
 [editable path="Room7/Platform6"]
 [editable path="Room7/Water"]
-[editable path="Room7/Spike"]
 [editable path="Room7/Platform8"]
 [editable path="Room7/Spike4"]
