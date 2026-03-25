@@ -12,8 +12,6 @@ class_name Emu
 @export var jumpBufferTime: float
 @export var coyoteTime: float
 
-@onready var sprite := $AnimatedSprite2D
-
 var InputDir: float = 0.0
 var Speed: float
 var Momentum: float
@@ -103,13 +101,13 @@ func _process(delta: float) -> void:
 	
 	match CurrentState:
 		States.Idle:
-			sprite.play("Idle")
+			return
 		States.Run:
-			sprite.play("Run")
+			return
 		States.Jump:
-			sprite.play("Jump")
+			return
 		States.Fall:
-			sprite.play("Jump")
+			return
 
 func _change_state(NewState: States) -> void:
 	CurrentState = NewState
