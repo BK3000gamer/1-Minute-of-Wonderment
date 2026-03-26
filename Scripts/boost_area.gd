@@ -13,6 +13,6 @@ func _on_body_exited(body: Node2D) -> void:
 	if body is Emu:
 		boosted = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if boosted:
 		player.jumpHeight = jumpHeight

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c0okii45uhn2y"]
 
 [ext_resource type="Script" uid="uid://cos50oglvglos" path="res://Scripts/clock.gd" id="1_pdqta"]
-[ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="1_s7hhp"]
+[ext_resource type="Texture2D" uid="uid://dfpm2jcto1guv" path="res://Sprites/Clock.png" id="2_pdqta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdqta"]
+size = Vector2(16, 16)
 
 [node name="Clock" type="Area2D" unique_id=686088564]
 script = ExtResource("1_pdqta")
@@ -12,7 +13,6 @@ script = ExtResource("1_pdqta")
 shape = SubResource("RectangleShape2D_pdqta")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1986350620]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_s7hhp")
+texture = ExtResource("2_pdqta")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

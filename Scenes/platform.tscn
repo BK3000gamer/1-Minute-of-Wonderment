@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr4s35bk2t2ea"]
+[gd_scene format=3 uid="uid://cr4s35bk2t2ea"]
 
 [ext_resource type="Texture2D" uid="uid://c27elp05kgt8m" path="res://icon.svg" id="1_1rc8e"]
 
-[node name="Platform" type="StaticBody2D"]
+[node name="Platform" type="StaticBody2D" unique_id=1196744824]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=370544245]
+visible = false
 texture = ExtResource("1_1rc8e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=155744311]

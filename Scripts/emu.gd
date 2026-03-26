@@ -101,6 +101,10 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	jumpBufferTimer -= delta
 	coyoteTimer -= delta
+	if InputDir < 0:
+		Sprite.flip_h = true
+	else:
+		Sprite.flip_h = false
 	
 	match CurrentState:
 		States.Idle:

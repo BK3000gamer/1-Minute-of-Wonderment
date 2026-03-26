@@ -1,16 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmaseovuaexvq"]
+[gd_scene format=3 uid="uid://bmaseovuaexvq"]
 
 [ext_resource type="Script" uid="uid://cqucbe84l4pq7" path="res://Scripts/room.gd" id="1_mbine"]
+[ext_resource type="Texture2D" uid="uid://dkh06dlgc0jwy" path="res://Sprites/Tileset.png" id="2_lsht4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lsht4"]
 size = Vector2(640, 360)
 
-[node name="Room" type="Area2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fr46g"]
+texture = ExtResource("2_lsht4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+6:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:2/0 = 0
+3:1/0 = 0
+3:0/0 = 0
+0:5/0 = 0
+2:5/0 = 0
+4:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6mpvv"]
+sources/0 = SubResource("TileSetAtlasSource_fr46g")
+
+[node name="Room" type="Area2D" unique_id=2039070006]
 script = ExtResource("1_mbine")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=983333063]
 shape = SubResource("RectangleShape2D_lsht4")
 
-[node name="Checkpoint" type="Marker2D" parent="."]
+[node name="Checkpoint" type="Marker2D" parent="." unique_id=25880619]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=727862113]
+z_index = 6
+position = Vector2(0, 4)
+tile_set = SubResource("TileSet_6mpvv")
+format = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
